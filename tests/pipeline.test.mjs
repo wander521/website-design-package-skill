@@ -149,3 +149,19 @@ test('duplicate backtick font blocks cannot be silently replaced by the parser',
  const md=draft.replace('### Type Scale','### Duplicate · `--font-body`\n- **Substitute:** "Original Sans", Arial, sans-serif\n- **Weights:** 400\n- **Role:** Another font\n\n### Type Scale');
  assert.throws(()=>compile(md,evidence),/Duplicate source token/);
 });
+test('missing HTTP status and explicitly partial evidence cannot compile',()=>{
+ const missing=structuredClone(evidence);delete missing.status;assert.throws(()=>compile(draft,missing),/status/);
+ const partial={...evidence,complete:false};assert.throws(()=>compile(draft,partial),/status/);
+});
+test('declaration-only origins keep the quality report in review even if families are complete',()=>{
+ const result=compile(draft,evidence);assert.ok(result.report.quality.originWarnings.length>0);assert.equal(result.report.quality.status,'review');
+});
+test('unused inherited wrapper font is excluded while its actual glyph font is retained',()=>{
+ const e=structuredClone(evidence);e.samples[0].elements=[{tag:'button',group:'actions',text:'Start',directText:'',textOwner:false,styles:{'font-family':'Times New Roman'}},{tag:'span',group:'text-fragments',text:'Start',directText:'Start',textOwner:true,styles:{'font-family':'Original Sans'}}];
+ const report=compile(draft,e).report;assert.deepEqual(report.quality.fontInventory.map(f=>f.primary),['original sans']);assert.ok(!report.quality.warnings.some(w=>w.code==='observed-font-omitted'));
+});
+
+test('all-empty viewport evidence cannot compile; partial empty viewports remain explicit review warnings',()=>{
+ const empty=structuredClone(evidence);empty.samples[0].elements=[];assert.throws(()=>compile(draft,empty),/No observed elements/);
+ const partial=structuredClone(evidence);partial.samples.push({viewport:{width:390,height:844},elements:[]});assert.ok(compile(draft,partial).report.quality.warnings.some(w=>w.code==='missing-core-capture'));
+});

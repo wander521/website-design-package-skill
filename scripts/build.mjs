@@ -37,7 +37,8 @@ export function compile(markdown,evidence) {
   if(!evidence||evidence.schemaVersion!==1||!evidence.requestedUrl||!evidence.samples?.length)throw new Error('Missing rendered website evidence.');
   const sourceUrl=new URL(evidence.requestedUrl);
   if(!['http:','https:'].includes(sourceUrl.protocol)||sourceUrl.username||sourceUrl.password)throw new Error('Invalid source URL.');
-  if(!evidence.finalUrl||evidence.status<200||evidence.status>=400)throw new Error('Invalid captured page status.');
+  if(evidence.samples.every(sample=>!sample.elements?.length))throw new Error('No observed elements; capture is incomplete.');
+  if(!evidence.finalUrl||!Number.isInteger(evidence.status)||evidence.status<200||evidence.status>=400||evidence.complete===false)throw new Error('Invalid captured page status.');
   const normalized=markdown.replace(/\r\n?/g,'\n').trim()+'\n';
   if(!/^# .+ — Style Reference\s*$/m.test(normalized)||!/^> \S/m.test(normalized))throw new Error('Use a canonical brand title and description.');
   if(!/^\*\*Theme:\*\* (light|dark)\s*$/m.test(normalized))throw new Error('Missing canonical Theme declaration.');
@@ -129,7 +130,7 @@ export function compile(markdown,evidence) {
   guardReferences(declarations(theme),'theme.css');
   const files={'design.md':normalized,'token.json':exportToJson(tokens)+'\n','variables.css':variables,'theme.css':theme};
   const hashes=Object.fromEntries(Object.entries(files).map(([n,v])=>[n,hash(v)]));
-  return {files,report:{schemaVersion:1,compilerVersion:'2.0.0',captureVersion:evidence.captureVersion||1,sourceUrl:evidence.requestedUrl,finalUrl:evidence.finalUrl,capturedAt:evidence.capturedAt,sourceSha256:hash(normalized),hashes,browserVerified:false,cssChecks:checks,quality:{...qualityReview(tokens,evidence),originWarnings},counts:Object.fromEntries(['colors','gradients','spacing','radius','shadows'].map(g=>[g,tokens[g].length])),format:'RICOUI-compatible JSON (DTCG-style, not a strict DTCG conformance claim)',upstream:'ricocc/ricoui-design-md@570aef63c0b747db8110efae161299948d83b9e6'}};
+  return {files,report:{schemaVersion:1,compilerVersion:'2.1.0',captureVersion:evidence.captureVersion||1,sourceUrl:evidence.requestedUrl,finalUrl:evidence.finalUrl,capturedAt:evidence.capturedAt,sourceSha256:hash(normalized),hashes,browserVerified:false,cssChecks:checks,quality:{...qualityReview(tokens,evidence),...(originWarnings.length?{status:'review'}:{}),originWarnings},counts:Object.fromEntries(['colors','gradients','spacing','radius','shadows'].map(g=>[g,tokens[g].length])),format:'RICOUI-compatible JSON (DTCG-style, not a strict DTCG conformance claim)',upstream:'ricocc/ricoui-design-md@570aef63c0b747db8110efae161299948d83b9e6'}};
 }
 // Dependency-free, deterministic ZIP (UTF-8, stored entries, fixed timestamps).
 function crc32(bytes){let crc=0xffffffff;for(const byte of bytes){crc^=byte;for(let bit=0;bit<8;bit++)crc=(crc>>>1)^((crc&1)?0xedb88320:0);}return(crc^0xffffffff)>>>0;}

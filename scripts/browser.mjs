@@ -34,6 +34,14 @@ export async function checkCss(dir,modulePath) {
       for(const {name,value} of checks.filter(x=>x.name)) {
         if(!root.getPropertyValue(name).trim())invalid.push({name,value,error:'Empty computed custom property'});
       }
+      // Resolve var() using the browser, then check its actual property type.
+      const probe=document.createElement('div');document.body.append(probe);
+      for(const {property,value,name} of checks){
+        probe.style.setProperty('--design-verification-value',value);
+        const resolved=getComputedStyle(probe).getPropertyValue('--design-verification-value').trim();
+        if(!resolved||!CSS.supports(property,resolved))invalid.push({property,value,name,resolved,error:'Invalid resolved CSS value'});
+      }
+      probe.remove();
       // @theme is a Tailwind build directive; validate its declarations as custom properties.
       const themeStyle=document.createElement('style');themeStyle.textContent=theme.replace(/^\s*@theme\s*\{/m,':root {');document.head.append(themeStyle);
       if(!style.sheet?.cssRules.length||!themeStyle.sheet?.cssRules.length)invalid.push({error:'CSS parse failed'});

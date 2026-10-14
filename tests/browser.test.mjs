@@ -56,3 +56,11 @@ test('browser rejects CSS that static custom-property parsing would accept, leav
  assert.throws(()=>pack(dir,path.join(dir,'out.zip')),/verify/);
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+test('browser rejects a defined CSS variable that resolves to the wrong property type',async()=>{
+ const dir=stage(md);try{
+ const report=JSON.parse(fs.readFileSync(path.join(dir,'validation.json'),'utf8'));
+ report.cssChecks.push({property:'color',value:'var(--radius-surface)'});fs.writeFileSync(path.join(dir,'validation.json'),JSON.stringify(report));
+ await assert.rejects(checkCss(dir,process.env.DESIGN_TEST_PLAYWRIGHT),/Invalid resolved CSS value/);
+ assert.throws(()=>pack(dir,path.join(dir,'out.zip')),/verify/);
+ }finally{fs.rmSync(dir,{recursive:true,force:true});}
+});

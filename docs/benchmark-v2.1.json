@@ -1,0 +1,3820 @@
+{
+  "version": "2.1.0",
+  "auditedAt": "2026-10-14T11:31:40.778031+00:00",
+  "upstreamRevision": "570aef63c0b747db8110efae161299948d83b9e6",
+  "testedSites": 24,
+  "completedPackages": 23,
+  "failedSites": 1,
+  "cssChecks": 952,
+  "regressionTests": 35,
+  "sourceScope": "24 new sites, excluding the six historical v2 sites and reserve capture-only sites",
+  "referenceScope": "Pinned published GitHub source templates; not a claim of byte identity with deployed design.ricoui.com downloads",
+  "sites": [
+    {
+      "id": "airbnb",
+      "requestedUrl": "https://www.airbnb.com/",
+      "status": "failed",
+      "checks": 0,
+      "reason": "Public official zh route captured, but property-listing/card body did not render after bounded stabilization. Desktop initially skeleton; later only search/navbar and destination footer. No complete style package emitted.",
+      "finalUrl": "https://zh.airbnb.com/",
+      "capturedAt": "2026-10-14T11:06:50.176Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "captureStatus": "captured-no-successful-package"
+    },
+    {
+      "id": "cal",
+      "requestedUrl": "https://cal.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://cal.com/",
+      "capturedAt": "2026-10-14T10:59:05.830Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 40,
+      "counts": {
+        "colors": 5,
+        "gradients": 2,
+        "spacing": 2,
+        "radius": 4,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "scroll-coverage-partial"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "1cd6b4f906e43b604f8e7e67b2d1936077f9159bd8eac77fbc2a9af98f104035",
+        "fileHashes": {
+          "design.md": "16c9cb3581f240c3e9d287e4b41a6df1d387a45186c6a47736183bc9779269b5",
+          "token.json": "c504c8887e83a6babac02018fb1ad06d3899affd13550a14f3aab2e89daffff7",
+          "variables.css": "119c7bb9eccfc41ac65ad55a651db63d567f32b250bac0497fd6b996e32ca198",
+          "theme.css": "4ed157550566cd367bd5ede18510ca8d6f262ac4e7856acdf1e788493b872059"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "surfaces",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "surfaces",
+          "family": null
+        },
+        {
+          "qualityWarning": "scroll-coverage-partial",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": null,
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/cal",
+        "designSha256": "678914b4fa411b284f5538ae1fdadeb5393985d27c98c63222de6087b6008ebf",
+        "tokensSha256": "e8c6bec83a73904a64159a92a0c38a0cf226dafd5fd1d641e8b947fdecf6d930",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "partial match",
+          "observedIssue": "参考Cal Sans64与Cal Sans UI16/300、灰paper/白card方向吻合；本次Mobile40。实际完整Placeholder栈与参考替代Poppins/Inter不同，产品Inter/Matter保留局部。",
+          "evidencePointer": "samples[0/1].elements[2]; selection.json#fontStacks",
+          "referencePointer": "DESIGN.md#Typography; tokens.json#/typography/display",
+          "recommendation": "不在抽取中把实际family替成参考fallback。"
+        },
+        {
+          "classification": "incorrect blanket restriction in sampled scope",
+          "observedIssue": "参考Avoid Gradients且primary pill；当前Google/email CTA存在真实子层gradient，文字为子p，透明父anchor不是视觉填色。已保存gradient并未将继承blue/sans用作按钮字。",
+          "evidencePointer": "primary-cta-layer-supplement; files/token.json#/gradient; capture-v21/desktop-top.png",
+          "referencePointer": "DESIGN.md#Usage guidance; #Buttons and controls",
+          "recommendation": "抽取保留真实paint/shape，模板约束不覆盖当前实例。"
+        },
+        {
+          "classification": "overlay/font detector corrected",
+          "observedIssue": "旧采集把远处static shadow testimonial Show more当visible overlay；新版未记overlay；textOwner消除父wrapper sans虚假字体遗漏。",
+          "evidencePointer": "capture/evidence-automatic.json; capture-v21/evidence-automatic.json; files/validation.json#quality",
+          "referencePointer": "DESIGN.md#Components",
+          "recommendation": "overlay按fixed/dialog语义判定，staticwidget不可算modal；字体按实际glyph。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 156
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 156
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 28
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 25
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 0
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 0
+        }
+      ]
+    },
+    {
+      "id": "clickhouse",
+      "requestedUrl": "https://clickhouse.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://clickhouse.com/",
+      "capturedAt": "2026-10-14T10:47:42.094Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 51,
+      "counts": {
+        "colors": 7,
+        "gradients": 1,
+        "spacing": 4,
+        "radius": 3,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "scroll-coverage-partial",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "6778da818e07663665767fd72e3acf19fb7d3a535cb2902b6caa273d1e8394a7",
+        "fileHashes": {
+          "design.md": "e9e8a5ff6653ec9893b976a59a25f73920da963e2b46a11d931f99c902b391bb",
+          "token.json": "a0d4da967635d30aafba76f14c9dd5868787c5574c2c982887a0f4607827b4ce",
+          "variables.css": "b3a363778d7453c05c946ee59bef8b99b5efd16daa0a94e98fa373dfa38f3e68",
+          "theme.css": "8d858998e1511942565c501d5f40bcbf650d8ebe517cef24bd3c52e01189867a"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent was submitted or dismissed."
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/clickhouse",
+        "designSha256": "56c3155fed0d2e2b375075092b4b3fb3b8fc69746ed142969753553b40708c1d",
+        "tokensSha256": "27a05538cb3c515c785be6fd9d333cbeb9c06fe47b1047d8d14b01f3b7a5e3f7",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "current-scope-or-version-difference",
+          "observedIssue": "Current hero is 96px basier (36px mobile), while reference display-xl is 72px Inter. Body Inter and mono/code families are separately present.",
+          "evidencePointer": "capture/evidence.json $.samples[0].elements[2].styles; selection.json hero-desktop",
+          "referencePointer": "tokens.json $.typography.display-xl",
+          "recommendation": "Use actual per-role fonts and device snapshots, not the largest template typography token."
+        },
+        {
+          "category": "template-unsupported-current-scope",
+          "observedIssue": "Reference active/disabled yellow CTA colors and control states were not activated; current yellow is preserved as captured lab(), rather than hex-normalized to template values.",
+          "evidencePointer": "draft.md colors/action; capture/evidence.json states",
+          "referencePointer": "DESIGN.md primary-active/primary-disabled",
+          "recommendation": "Separate numerical equivalence from role evidence; omit unobserved active/disabled states."
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 172
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 170
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 9
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 6
+        }
+      ]
+    },
+    {
+      "id": "cohere",
+      "requestedUrl": "https://cohere.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://cohere.com/",
+      "capturedAt": "2026-10-14T11:05:58.095Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 44,
+      "counts": {
+        "colors": 7,
+        "gradients": 1,
+        "spacing": 6,
+        "radius": 3,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "67967213a9a484536e19c9e930edc4a74bac5980bf649f033a5feafff2bd021d",
+        "fileHashes": {
+          "design.md": "23125366e8d832424610d55d057a3aad58c1d8386f2fc1e17dad3305bb9feef6",
+          "token.json": "41bd3074c2f2326629c75157b709c878ac846877ae9356550b72464b3b1b9195",
+          "variables.css": "6e349deb2c5f78a48890fc30fcab865efde62bb97a78a8f8e42a499e158fdd44",
+          "theme.css": "6ad2546fa0be26d91afbcbb1cbedb487baa011b16b4e0e4e764c1217edfe443c"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent action was clicked. State sampling uses hover, keyboard focus and Escape cleanup."
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/cohere",
+        "designSha256": "4335b2a2726d4c4cc9610104a20b9d03064b5496348ee650ca12e4caa7d6aac8",
+        "tokensSha256": "7192f042a7183b87a171c97444379d8d5793928ef1cfac40aa71dd55763ea64a",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "aligned",
+          "observedIssue": "Live hero CohereText 96px, white canvas and dark #17171c CTA align with reference core identity; live also confirms CohereMono technical labels.",
+          "evidencePointer": "selection.json hero-desktop; capture/evidence.json p NORTH PLATFORM",
+          "referencePointer": "tokens.json $.typography.hero-display; $.color.primary",
+          "recommendation": "Keep original complete fallback stacks and mobile 60px role."
+        },
+        {
+          "category": "capture-omission",
+          "observedIssue": "Baseline cookie panel is visually present but not flagged as overlay; auto states select Reject optional, so they do not prove brand Request demo states.",
+          "evidencePointer": "capture/desktop-top.png; capture/mobile-top.png; capture/evidence.json states",
+          "referencePointer": "DESIGN.md contact/product actions",
+          "recommendation": "Detect vendor/anonymous overlays and exclude consent buttons from brand CTA sampling."
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 198
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 153
+        }
+      ]
+    },
+    {
+      "id": "cursor",
+      "requestedUrl": "https://www.cursor.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://cursor.com/",
+      "capturedAt": "2026-10-14T10:47:35.093Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 39,
+      "counts": {
+        "colors": 6,
+        "gradients": 0,
+        "spacing": 2,
+        "radius": 4,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "css-capture-capped",
+        "sampling-group-capped"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "2c607b7b405f7892f8483a62d6031c67ed4591972875b9bf26b512e32f0baeab",
+        "fileHashes": {
+          "design.md": "6022f43766826d91a5e04b5dfbbe3466402f6798e7f15818a79f5f19eb7d6cc0",
+          "token.json": "13a9de5b610850629034aa0582635b56773516a0c080372a322eb6c07d021a70",
+          "variables.css": "9839ee8db367541114af30a4e515e1924676c98f85e093ac2c58e08a3f583ed3",
+          "theme.css": "cfadb3a841477469ba0981a891248a4c2d3cce1cd1b037572cee350d18298124"
+        }
+      },
+      "limits": [
+        "CSS capture is capped at 20000 declarations, prioritized for fonts, named custom properties and core elements; computed values and root variables are recorded separately.",
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "css-capture-capped",
+          "viewport": null,
+          "group": null,
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "navigation",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "navigation",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "footer",
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/cursor",
+        "designSha256": "c6b99b5e0024c678d42f4a278f69b48ca0301f714f52b9d43e69d398e15075a1",
+        "tokensSha256": "b1c620e3a4684ef996f3ec52606901354356d2eae200274a35dcb3e96d52b16a",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "incorrect template role for sampled instance",
+          "observedIssue": "参考橙色primary #f54e00，当前下载/开始使用主CTA为rgb(38,37,30)暗墨底、rgb(247,247,244)字；橙色只见演示Build按钮，不能升格全局CTA。",
+          "evidencePointer": "states targeted CTA; capture/desktop-top.png",
+          "referencePointer": "tokens.json#/color/primary; DESIGN.md introduction",
+          "recommendation": "区分marketing CTA和产品demo内部操作色。"
+        },
+        {
+          "classification": "secondary font scope/version difference",
+          "observedIssue": "参考称每个code用JetBrains Mono；当前真实代码BerkeleyMono及其它demo系统字体，已按代码/产品演示局部角色记录。此次locale中文，26→24.375px h1。",
+          "evidencePointer": "selection.json#fontStacks; samples[0/1].elements[2]",
+          "referencePointer": "DESIGN.md introduction; tokens.json#/typography",
+          "recommendation": "核对可见代码字体并保持locale和设备差异，不统一替换成模板font。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 147
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 138
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 45
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 62
+        }
+      ]
+    },
+    {
+      "id": "expo",
+      "requestedUrl": "https://expo.dev/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://expo.dev/",
+      "capturedAt": "2026-10-14T10:59:43.473Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 47,
+      "counts": {
+        "colors": 8,
+        "gradients": 0,
+        "spacing": 4,
+        "radius": 2,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "14dbb138f5a75a01a2bbf21ae89ba09b174f15aee608285857d6bd7d4bd3d710",
+        "fileHashes": {
+          "design.md": "a88c18b34536a9902d37bc0c6de9e96686ebd483a76fb94297fb04d5cc015cb0",
+          "token.json": "a5e6cb24294138b0b85361cfa4172e89f3e12d87622ea2c3452cfe3c21a06bee",
+          "variables.css": "ca38578b5338bd83809cd68b28ff0e806fe44aea300af52669b02eaa10f6da8c",
+          "theme.css": "f4b7251e61d917aa0a3c2f2b9496e75b5bc1463693664a70bfec1c4f3fe53d11"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent was submitted or dismissed.",
+        "JetBrains Mono 与系统 ui-monospace 是两个真实局部角色，不漏为只 Inter。",
+        "客户图标/图形内部颜色不推断成通用 palette。",
+        "未点击登录、联系团队、同意 Cookie 或提交 newsletter。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/expo",
+        "designSha256": "11eb827daa3b31088896a9f36199432adf63a288a38d8948c22dfe9da20d3604",
+        "tokensSha256": "f9c1dd6287955ad654686a7ad0d95afbf2e20c9d026f1cbc27dc93fe4ac9d573",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "fonts",
+          "finding": "Inter与JetBrains Mono的角色均有真实computed证据；完整fallback不是参考Fira Code，newsletter另有ui-monospace。",
+          "referencePointer": "DESIGN.md Typography",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2)",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > p",
+              "property": "color",
+              "value": "rgb(96, 100, 108)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(28, 32, 36)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[96]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "composition",
+          "finding": "参考MacBook+iPhone设备组合/天空蓝gradient hero，当前Agentic mobile infrastructure为放射线Expo标志、三栏到单列。",
+          "referencePointer": "DESIGN.md:2",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2)",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > p",
+              "property": "color",
+              "value": "rgb(96, 100, 108)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(28, 32, 36)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[96]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "type",
+          "finding": "当前hero48px/600/52.8px与参考48px/600/1.1基本一致，但tracking为-1.2px而非-1.44px；真实正文500而非概述400。",
+          "referencePointer": "tokens.json:typography.display-xl",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2)",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > p",
+              "property": "color",
+              "value": "rgb(96, 100, 108)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(28, 32, 36)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[96]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "status-palette",
+          "finding": "额外状态、code完整表面和广泛spacing角色不在本页当前采样范围，不因模板token更多而制造。",
+          "referencePointer": "tokens.json:color",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2)",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > p",
+              "property": "color",
+              "value": "rgb(96, 100, 108)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(28, 32, 36)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[96]",
+              "selector": "body > div:nth-of-type(2) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(1) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 187
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 178
+        }
+      ]
+    },
+    {
+      "id": "figma",
+      "requestedUrl": "https://www.figma.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://www.figma.com/",
+      "capturedAt": "2026-10-14T10:59:15.211Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 43,
+      "counts": {
+        "colors": 8,
+        "gradients": 0,
+        "spacing": 4,
+        "radius": 2,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "0708374e67a27fdaeabf38049428f8d19cee42d31cd0144b7caa4c662c3d9598",
+        "fileHashes": {
+          "design.md": "7e9edaeb7504eb0016592511774cfaa501f6e152483698306787bf6c9a373fb8",
+          "token.json": "a1aee545c28031da16cc39530ec124276ede471385bc815819290b40901d62b2",
+          "variables.css": "36fb8b685316079b0297fd7d160c0fb9ed1ecbee3177bcd0db9da9e11c0363d7",
+          "theme.css": "ec77c468360f9d1d8120903a72ecfcf20495ba940a0f72bef21633c1604bbe41"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent was submitted or dismissed.",
+        "动态示例素材颜色不自动变成稳定品牌主色。",
+        "CTA 的实际文字 span 为桌面 30px；其 anchor 继承 16px 不是可见文字字号。",
+        "330/340 等字重为可变字体的真实值，未规整成猜测的 400。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/figma",
+        "designSha256": "0933726b6b10b45b4186b49d50a73292817f3bd103323e57a96d6dea2f4df382",
+        "tokensSha256": "2e25832f2091a0dcc9fdf61ce34edb9e5a9958a67f5356b7f3fc2da0dca810f4",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "primary-action",
+          "finding": "参考以 Electric Indigo 作为主操作/焦点；当前 hero CTA 是黑底白字，hover 为透明黑混合值，键盘焦点为黑色虚线。",
+          "referencePointer": "DESIGN.md:5",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[79]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(1) > div > div:nth-of-type(3) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[135]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(1) > div > div:nth-of-type(3) > div > a > span > span",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "states[1].hover",
+              "selector": null,
+              "property": "background-color",
+              "value": "oklch(0 0 none / 0.85)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[79]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(1) > div > div:nth-of-type(3) > div > a",
+              "property": "padding-right",
+              "value": "32px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "font",
+          "finding": "两者包含 figmaSans/figmaMono，但实时完整栈是 SF Pro Display/SF Mono 等 fallback，而模板用 Inter/ui-monospace。未拷贝未观测 fallback。",
+          "referencePointer": "tokens.json:typography.body",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "#app",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[33]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(3) > div > div:nth-of-type(2) > ul > li:nth-of-type(1) > article > div:nth-of-type(1) > div > p",
+              "property": "color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "#_R_clubsodqivb_",
+              "property": "color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[79]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(1) > div > div:nth-of-type(3) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "type",
+          "finding": "参考 display 72px 与当前 h1 56px/手机36px、字重400不同；真实CTA内span桌面30px而anchor继承16px，新版提取取字形实例。",
+          "referencePointer": "tokens.json:typography.display",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "#app",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[33]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(3) > div > div:nth-of-type(2) > ul > li:nth-of-type(1) > article > div:nth-of-type(1) > div > p",
+              "property": "color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "#_R_clubsodqivb_",
+              "property": "color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[79]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(1) > div > div:nth-of-type(3) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "surfaces",
+          "finding": "模板指定 indigo spotlight/16px floating hero shadow；当前主视觉是动态素材拼贴，不能将素材里颜色和阴影全升级为页面组件。",
+          "referencePointer": "DESIGN.md:5",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "#app",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[33]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(3) > div > div:nth-of-type(2) > ul > li:nth-of-type(1) > article > div:nth-of-type(1) > div > p",
+              "property": "color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "#_R_clubsodqivb_",
+              "property": "color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[79]",
+              "selector": "body > div:nth-of-type(2) > main > section:nth-of-type(1) > div > div:nth-of-type(3) > div > a",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 199
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 187
+        }
+      ]
+    },
+    {
+      "id": "framer",
+      "requestedUrl": "https://www.framer.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://www.framer.com/",
+      "capturedAt": "2026-10-14T10:59:05.136Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 43,
+      "counts": {
+        "colors": 6,
+        "gradients": 0,
+        "spacing": 3,
+        "radius": 4,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "css-capture-capped",
+        "sampling-group-capped",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "a002f834290569724f82c59c875d7535822f793e3db4e97f559f43cc6fe6751a",
+        "fileHashes": {
+          "design.md": "5a3a6d0eb3efdb74f8ce29ca00e5bf91333a03a6c748c2c6d413e4abb75737f2",
+          "token.json": "569acb3816148c1060cb850fa2b337cdd9d4fdfb729430627d729412ba064241",
+          "variables.css": "7b3a48426e04cacceac69e2d887998829f88b036e575d75eb6395efaf816bbd9",
+          "theme.css": "8925699d5aea9968b08f26dcec8834d513ab57509e5114e6b573e9cbba8be412"
+        }
+      },
+      "limits": [
+        "CSS capture is capped at 20000 declarations, prioritized for fonts, named custom properties and core elements; computed values and root variables are recorded separately.",
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent was submitted or dismissed.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "css-capture-capped",
+          "viewport": null,
+          "group": null,
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text-fragments",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "surfaces",
+          "family": null
+        },
+        {
+          "qualityWarning": "visible-overlay",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": null,
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "text-fragments",
+          "family": null
+        },
+        {
+          "qualityWarning": "visible-overlay",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": null,
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/framer",
+        "designSha256": "c64de0bca964a8ad246f80109cc1a8e2c0cc6405b4923d91c64c426c761774a1",
+        "tokensSha256": "77e37c15326b420fad8815bd74971d5c45442462767933db763934c7b8ca9e7d",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "scope/version difference",
+          "observedIssue": "当前h1为54/36px；参考display-xxl110、xl85、lg62不对应此次首页主标题。GT Walsheim/Inter族方向一致，但完整Placeholder fallback栈不同。",
+          "evidencePointer": "samples[0/1].elements[2].styles.font-size; selection.json#fontStacks",
+          "referencePointer": "DESIGN.md#Type Scale; tokens.json#/typography",
+          "recommendation": "保留新页面54/36快照和原栈；不因参考更大字体就扩大标题。"
+        },
+        {
+          "classification": "extraction defect fixed",
+          "observedIssue": "冻结v2大多数anchor是未使用sans12与蓝色；新v2.1采真正子p glyph并通过textOwner=false排除虚假字体遗漏。CTA白填黑字与参考一致。",
+          "evidencePointer": "capture/evidence-automatic.json; capture-v21/evidence-automatic.json; files/validation.json#quality",
+          "referencePointer": "DESIGN.md#Tokens — Colors primary/on primary",
+          "recommendation": "必须记录CTA/nav actualglyph，不能用anchor inheritedcolor。"
+        },
+        {
+          "classification": "template exporter fidelity",
+          "observedIssue": "参考每个font block Substitute均Inter，会改变GT Walsheim原排版；本包完整实际栈。",
+          "evidencePointer": "files/variables.css; selection.json#fontStacks",
+          "referencePointer": "DESIGN.md font blocks Substitute",
+          "recommendation": "将substitute当CSS真实输出字段审查，保留原family。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 219
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 188
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 62
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 62
+        }
+      ]
+    },
+    {
+      "id": "hashicorp",
+      "requestedUrl": "https://www.hashicorp.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://www.hashicorp.com/zh",
+      "capturedAt": "2026-10-14T11:00:17.675Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 44,
+      "counts": {
+        "colors": 6,
+        "gradients": 0,
+        "spacing": 4,
+        "radius": 2,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "5f4784d0e6012705d35e71ccf810b7d626928453639efb2cdd157599a5bfdb49",
+        "fileHashes": {
+          "design.md": "9419e3ab86691d80247449133a1ef9ad721ef4be8611eccdf2fd76ba288ba672",
+          "token.json": "e128889f9fb8848c1d1a44699952f739436a763f2a1e1eac7b448c46d7c50871",
+          "variables.css": "125d2727d2580a9e63a23d4ba80f5c8a8b1d949f71f0b04c68c025a80f8554c2",
+          "theme.css": "3abd6e67d40b4368fa4bc2a110ec1f0c59b5c29d38c53a1188d4d684c3ba548c"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent was submitted or dismissed.",
+        "自动转 /zh，但主体仍英文；不能仅凭路径声称翻译完成。",
+        "基线截图在焦点采样后残留 Solutions 菜单；新版截图需检查 Escape 清理是否生效。",
+        "浅色 header 与隐私面板是独立组件，主页面仍 dark；不把二者混名。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/hashicorp",
+        "designSha256": "5852d8281d7ef7f69a6d50a9c1d3c96bfcaba1acc5f82d987f5c6f978828d6e0",
+        "tokensSha256": "b8155eb773f7f710705ec07d957572f2aad1b8afb1339b931e027d9468a8f3b8",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "theme",
+          "finding": "参考和当前主页面均dark，白色nav/Privacy Settings作为独立浅色组件，不混为canvas。",
+          "referencePointer": "DESIGN.md:4",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[1]",
+              "selector": "body > main > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(13, 14, 18)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[30]",
+              "selector": "body > main > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(1) > span > div > p:nth-of-type(1)",
+              "property": "color",
+              "value": "rgb(178, 182, 189)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > main > div:nth-of-type(1) > div > div > h1",
+              "property": "color",
+              "value": "rgb(239, 239, 241)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[90]",
+              "selector": "#MGt6-X2gRNK7GBbbrxIyDw",
+              "property": "background-color",
+              "value": "rgb(250, 250, 250)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "hero-type",
+          "finding": "参考hashicorpSans80px/700/-2.5px；当前hashed HashiCorpSans 82px/600/normal，手机42px。不同捕获/部署版本，实时值保留。",
+          "referencePointer": "tokens.json:typography.display-xl",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > main > div:nth-of-type(1) > div > div > h1",
+              "property": "font-size",
+              "value": "82px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "body-font",
+          "finding": "当前正文和nav为system-ui、主标题HashiCorpSans、表单Arial；参考只概括同family正文500，不覆盖这些当前角色。",
+          "referencePointer": "DESIGN.md:2",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[30]",
+              "selector": "body > main > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(1) > span > div > p:nth-of-type(1)",
+              "property": "font-size",
+              "value": "16px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "product-palette",
+          "finding": "Terraform/Vault等产品identity色可能存在更广路线，不把模板完整产品色补成当前首页所有语义状态。",
+          "referencePointer": "DESIGN.md:2",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[1]",
+              "selector": "body > main > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(13, 14, 18)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[30]",
+              "selector": "body > main > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(1) > span > div > p:nth-of-type(1)",
+              "property": "color",
+              "value": "rgb(178, 182, 189)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > main > div:nth-of-type(1) > div > div > h1",
+              "property": "color",
+              "value": "rgb(239, 239, 241)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[90]",
+              "selector": "#MGt6-X2gRNK7GBbbrxIyDw",
+              "property": "background-color",
+              "value": "rgb(250, 250, 250)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 194
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 195
+        }
+      ]
+    },
+    {
+      "id": "mintlify",
+      "requestedUrl": "https://www.mintlify.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://www.mintlify.com/",
+      "capturedAt": "2026-10-14T10:48:33.338Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 39,
+      "counts": {
+        "colors": 9,
+        "gradients": 0,
+        "spacing": 2,
+        "radius": 4,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "scroll-coverage-partial",
+        "some-state-targets-unavailable"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "330cd57d06c324ca89a1753d8a61baab37b13a8b0381a19658751460f1ac0f15",
+        "fileHashes": {
+          "design.md": "86cb4fe82246e48006b43d8bf4b37814905769788b1e988ef7b11fb732d3e3ce",
+          "token.json": "22176a882fa2c6c52a94bfb8a7f5ad8cc371e254c8728e95f21634ec2d4e7443",
+          "variables.css": "3b3f8193d499fbb7658ea73cadbbd782a846d28e3021759ea6ae9d2c9d2175a4",
+          "theme.css": "bf8af6b5cf247c6d9d0eaa2102dac9d873db7185afacbb0e3cd75928a4661d4f"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "scroll-coverage-partial",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": null,
+          "family": null
+        },
+        {
+          "qualityWarning": "some-state-targets-unavailable",
+          "viewport": null,
+          "group": null,
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/mintlify",
+        "designSha256": "a899fef3d6eed881f5bbe39a7ff92f0d2f76629ce2056f41e1b6c7796797515b",
+        "tokensSha256": "8d2f91ff971ff9b03fc5994bca521f672a2419ca67c9074d4fe281da530668e5",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "scope/version difference",
+          "observedIssue": "参考Inter主标题与天空渐变，覆盖首页/pricing/docs；此次ArizonaFlare serif 50/40px、白底绿色斜线、Inter18px正文。参考GeistMono未见本次可见主要code glyph。",
+          "evidencePointer": "samples[0/1].elements[2]; selection.json#fontStacks; capture/desktop-top.png",
+          "referencePointer": "DESIGN.md introduction; tokens.json#/typography/hero-display",
+          "recommendation": "记录当前route/版本；不把pricing/docs的font/token拉进首页。"
+        },
+        {
+          "classification": "state coverage limitation resolved by supplement",
+          "observedIssue": "自动helper有selector identity changed并选择动态Agent traffic；已定向补Get started主CTA hover及keyboard focus，没提交表单。",
+          "evidencePointer": "states selector [data-benchmark-target=layered]; capture/evidence-automatic.json",
+          "referencePointer": "DESIGN.md#Components",
+          "recommendation": "动态数字和主CTA分开；保留selector identity保护，不强行复用错误目标。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 140
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 129
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 58
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 57
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 0
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 0
+        }
+      ]
+    },
+    {
+      "id": "mongodb",
+      "requestedUrl": "https://www.mongodb.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://www.mongodb.com/zh-cn",
+      "capturedAt": "2026-10-14T10:59:41.001Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 45,
+      "counts": {
+        "colors": 6,
+        "gradients": 0,
+        "spacing": 4,
+        "radius": 2,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "3ae530db56a650b6a96e2e82e32a898612330484e8156951c9efdaf8f8bced5d",
+        "fileHashes": {
+          "design.md": "43d88f5cd090d93f8e6ef02bfe90b8b1fb78c41e22e74eb0407bb9216a20f849",
+          "token.json": "6dab44315ea636a523e21f06d8e0945abdb5d86c9c5e4cac68c93d87c319f593",
+          "variables.css": "1d373f036d1e584723b39921e2248d2ec1df1796826192637a664ac301faeb3e",
+          "theme.css": "6c5c4b7390e329cffc7e6975b5d3d8d8bcf5b04eb16c776ba128b86ca366eab2"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted primary CTA state supplement used an anonymous fresh render; recorded separately from initial default screenshots.",
+        "自动转 zh-cn；英文模板与当前字形和语言范围不同。",
+        "announcement 的父链接同为绿色文字/底色，实际白色文字在内 span；不能取无效继承值。",
+        "文档链接实际内 span 为深海色，不取父链接默认蓝色。",
+        "代码演示需区分媒体与 DOM，当前没有完整逐语法 token。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/mongodb",
+        "designSha256": "7db17aced11ad075da5cd774629dfa7a4bbb6f12c462c86df41f4be9c414ffdb",
+        "tokensSha256": "49a2bfbd6028b4fc9e78f13f1f65eee6d19d9047f1b45cb065828cc24372c911",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "primary-action",
+          "finding": "实时CTA rgb(0,237,100)/深海文字rgb(0,30,43)与模板#00ed64/#001e2b一致；当前4px矩形与参考pill概述不同。",
+          "referencePointer": "tokens.json:color.primary/color.on-primary",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[70]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > span > a",
+              "property": "background-color",
+              "value": "rgb(0, 237, 100)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[70]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > span > a",
+              "property": "color",
+              "value": "rgb(0, 30, 43)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[70]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > span > a",
+              "property": "padding-right",
+              "value": "32px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[70]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > span > a",
+              "property": "padding-top",
+              "value": "16px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "fonts",
+          "finding": "参考Euclid Circular A/Source Code Pro，当前正文Sohne、标题Sohne Condensed、标签Sohne Mono与其它局部栈。模板覆盖多route/历史体系，当前页面不支持用旧font覆写。",
+          "referencePointer": "DESIGN.md Typography",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[4]",
+              "selector": "body > div > main > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div > section:nth-of-type(1) > div",
+              "property": "background-color",
+              "value": "rgb(253, 255, 245)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(3) > span > div > p",
+              "property": "color",
+              "value": "rgb(64, 79, 84)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(2) > h1",
+              "property": "color",
+              "value": "rgb(6, 22, 33)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[70]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > span > a",
+              "property": "background-color",
+              "value": "rgb(0, 237, 100)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "hero-type",
+          "finding": "当前中文hero64px/700/72px、手机40px/48px；参考72px/500/1.1，不等同同locale/viewport/route实例。",
+          "referencePointer": "tokens.json:typography.hero-display",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(2) > h1",
+              "property": "font-size",
+              "value": "64px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "code",
+          "finding": "右侧代码演示媒体不证明Source Code Pro DOM语法族已渲染；Sohne Mono仅对真实标签文字实例声明。",
+          "referencePointer": "tokens.json:typography",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[4]",
+              "selector": "body > div > main > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div > section:nth-of-type(1) > div",
+              "property": "background-color",
+              "value": "rgb(253, 255, 245)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(3) > span > div > p",
+              "property": "color",
+              "value": "rgb(64, 79, 84)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(2) > h1",
+              "property": "color",
+              "value": "rgb(6, 22, 33)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[70]",
+              "selector": "body > div > main > div:nth-of-type(3) > div > section > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > span > a",
+              "property": "background-color",
+              "value": "rgb(0, 237, 100)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 166
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 138
+        }
+      ]
+    },
+    {
+      "id": "nvidia",
+      "requestedUrl": "https://www.nvidia.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://www.nvidia.cn/",
+      "capturedAt": "2026-10-14T11:06:32.312Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 34,
+      "counts": {
+        "colors": 9,
+        "gradients": 0,
+        "spacing": 2,
+        "radius": 3,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "css-capture-capped",
+        "fonts-still-loading",
+        "missing-core-capture",
+        "sampling-group-capped",
+        "some-state-targets-unavailable",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "d5e9b849b86bce2de5f0ed63472f239c72e2f582e1e3d9be7cd5a81aacb73e79",
+        "fileHashes": {
+          "design.md": "fa475135456d96d8b179a5c287ee5411be1fab26bceea2aee5e51a73dcca2e5c",
+          "token.json": "c192fd189dc0ab51746b744284b1614bff4e7c586aa55be9277e61a459fecf38",
+          "variables.css": "9e02c07f712bc5a8fe818b0880c61a718e0af1a5990d567fb6ef7e575b2b81df",
+          "theme.css": "85a1a283746cabb2130e73847c1f71d114f89eefb267d984e95c186a91bdfe9a"
+        }
+      },
+      "limits": [
+        "A normal document navigation interrupted a read; retried that read once after DOMContentLoaded. No URL was re-requested.",
+        "Overlay visibility changed during hover/focus/Escape cleanup at 1440px; before-state observations are preserved in overlaysBeforeStates.",
+        "CSS capture is capped at 20000 declarations, prioritized for fonts, named custom properties and core elements; computed values and root variables are recorded separately.",
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Desktop captureVersion3 computed sample was empty; this package supplements it with the separately preserved captureVersion2 official nvidia.cn desktop snapshot. Mobile is captureVersion3. This is a qualified multi-capture reference, not proof of complete version3 automatic desktop extraction."
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/nvidia",
+        "designSha256": "422b4647f2bbbe15320f7fd218f5b693d79b55d75038b279dd7bd4fd4b17b922",
+        "tokensSha256": "c3273e6e9a098d07a755709698e119a5568c4626169be2b2e862693d2eb62f73",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "locale/scope-difference",
+          "observedIssue": "Requested NVIDIA.com redirects to NVIDIA.cn. Actual NVIDIA-CN family and green rgb(118,185,0) action are observed; reference typography names NVIDIA-EMEA. Current news tile has16px corners, so reference universal2px surface rule is not supported in sampled CN scope.",
+          "evidencePointer": "selection.json body/action; capture-v21/evidence.json samples[0].surfaces[6]; capture-v21-final/evidence-enriched.json finalUrl",
+          "referencePointer": "tokens.json typography.display-xl and color.primary; DESIGN.md angular2px statement",
+          "recommendation": "Scope typography and corner roles by locale and component; preserve actual green without changing family to reference."
+        },
+        {
+          "category": "sampling-limit",
+          "observedIssue": "Version3 desktop computed snapshot was empty even though its later screenshot rendered the hero; targeted desktop supplement was still loading. Package combines real version2 desktop snapshot with real version3 mobile and explicit provenance. It is not pure version3 automatic success.",
+          "evidencePointer": "capture-v21-final/evidence-enriched.json samples[0],samples[2],samples[4].provenance; files/validation.json quality missing-core-capture",
+          "referencePointer": "DESIGN.md scope/homepage styling",
+          "recommendation": "Expose empty core viewport samples as review limits; never replace missing rendered evidence with template values."
+        },
+        {
+          "category": "corrected-extraction-role",
+          "observedIssue": "Final semantic review separated black desktop Windows/light hero and white mobile keynote/dark hero tokens, and replaced16px accessibility skip-link typography with14px/37px desktop utility navigation for 驱动/支持. No new website capture or template values used.",
+          "evidencePointer": "capture-v21-final/evidence-enriched.json samples[4].elements[3].styles.color; samples[1].elements[2].styles.color; samples[4].elements[74/75].styles; selection.json heroAppearanceBindings",
+          "referencePointer": "DESIGN.md two surface modes; tokens.json typography body/navigation roles",
+          "recommendation": "Select hero color by observed appearance variant and scope utility navigation separately from accessibility aids."
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 0,
+          "capturedAt": "2026-10-14T11:06:32.312Z",
+          "finalUrl": "https://www.nvidia.cn/",
+          "captureVersion": 3,
+          "sourceCapture": "capture-v21-final/evidence.json"
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 153,
+          "capturedAt": "2026-10-14T11:06:32.312Z",
+          "finalUrl": "https://www.nvidia.cn/",
+          "captureVersion": 3,
+          "sourceCapture": "capture-v21-final/evidence.json"
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 0,
+          "capturedAt": "2026-10-14T11:11:25.117Z",
+          "finalUrl": "https://www.nvidia.cn/",
+          "captureVersion": 3,
+          "sourceCapture": "capture-v21-final/supplement.json"
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 153,
+          "capturedAt": "2026-10-14T11:11:27.597Z",
+          "finalUrl": "https://www.nvidia.cn/",
+          "captureVersion": 3,
+          "sourceCapture": "capture-v21-final/supplement.json"
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 149,
+          "capturedAt": "2026-10-14T10:57:24.929Z",
+          "finalUrl": "https://www.nvidia.cn/",
+          "captureVersion": 2,
+          "sourceCapture": "capture-v21/evidence.json"
+        }
+      ]
+    },
+    {
+      "id": "ollama",
+      "requestedUrl": "https://ollama.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://ollama.com/",
+      "capturedAt": "2026-10-14T10:59:52.272Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 33,
+      "counts": {
+        "colors": 6,
+        "gradients": 0,
+        "spacing": 3,
+        "radius": 1,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "checked",
+      "qualityWarningCodes": [],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "678254372f4c75a9e9ed2760afdad85338cb7d90de52f0aa9b726fd387c58c5b",
+        "fileHashes": {
+          "design.md": "940a26c4460fbacb137798bafca8f912f2948f40d6023bf2ed383d08d9f77084",
+          "token.json": "a7fc671e56f54679d7385ed2f9832b41cbbbd93e23ab59437d11b70d2929cd7c",
+          "variables.css": "57cc79250e8314d510d5b374032d109f8574046843b314c777ea656799da8482",
+          "theme.css": "6134609d8499fb322ee16d0235b86391258f4d1cce8e83fb102f04b60abec774"
+        }
+      },
+      "limits": [
+        "仅当前短介绍首页，不覆盖 Models/Docs/Pricing。",
+        "576px 是说明段落 max-width，不能叫整站容器宽。",
+        "唯一真实字体栈为 ui-sans-serif/system-ui；没有可见代码区。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/ollama",
+        "designSha256": "6d743c69fdfbdfcbe4295a45eaace50ff1b979739bd2a79f58703b34450ccbd9",
+        "tokensSha256": "ac92be84fe1a57fc96c256d10d3bdeea0b435345db68a9f8d83379d2700048d3",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "scope-version-difference",
+          "dimension": "hero-font",
+          "finding": "参考SF Pro Rounded 36px居中hero；当前是ui-sans-serif 22px/手机20px靠左，不声称当前页面存在SF Pro Rounded。",
+          "referencePointer": "tokens.json:typography.display-xl",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > main > h1",
+              "property": "font-size",
+              "value": "22px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "components",
+          "finding": "参考inline install snippet、pricing/FAQ薄边框卡片及mono，当前介绍页只有统计和机构logo矩阵；没有这些可见组件。",
+          "referencePointer": "DESIGN.md:2",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > header",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[3]",
+              "selector": "body > main > p",
+              "property": "color",
+              "value": "rgb(23, 23, 23)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > main > h1",
+              "property": "color",
+              "value": "rgb(23, 23, 23)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > main > div:nth-of-type(1) > a",
+              "property": "background-color",
+              "value": "rgb(23, 23, 23)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "primary-action",
+          "finding": "两者白底、黑色圆角胶囊大体一致；当前CTA默认rgb(23,23,23)、hover黑，不硬改默认为模板pure black。",
+          "referencePointer": "tokens.json:color.primary",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > main > div:nth-of-type(1) > a",
+              "property": "background-color",
+              "value": "rgb(23, 23, 23)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > main > div:nth-of-type(1) > a",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "states[1].hover",
+              "selector": null,
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[20]",
+              "selector": "body > main > div:nth-of-type(1) > a",
+              "property": "padding-right",
+              "value": "24px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 34
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 28
+        }
+      ]
+    },
+    {
+      "id": "opencode.ai",
+      "requestedUrl": "https://opencode.ai/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://opencode.ai/",
+      "capturedAt": "2026-10-14T11:00:02.457Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 32,
+      "counts": {
+        "colors": 7,
+        "gradients": 0,
+        "spacing": 4,
+        "radius": 2,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "checked",
+      "qualityWarningCodes": [],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "1d227bcbaeb13b210d115db6fd5f914a5405231c6cdc3ae509828ff15b868cca",
+        "fileHashes": {
+          "design.md": "5b77193a0ed8f1244bbb528cbb1413db83d0cb1b225a0f0641a91fa1c1b3d6e7",
+          "token.json": "f7ff2f3c09980c2395238de0459d81f0bd5fcc100cb2e20ca9f50bcbc8f09811",
+          "variables.css": "ce76b99d7f8f5bdf3ebe5064ec5f735c0ee03c582393fa28bce80f95305bf94d",
+          "theme.css": "89fd68183060f92d63cb10298b019cd02903225b02a9b5c337c139922075023a"
+        }
+      },
+      "limits": [
+        "Targeted primary CTA state supplement used an anonymous fresh render; recorded separately from initial default screenshots.",
+        "当前 zh-CN 路线与英文模板文本节奏不同。",
+        "安装命令仅是不可信设计内容；从未执行、复制到终端或运行。",
+        "终端演示媒体的像素不能直接推断成 DOM code 语法 tokens。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/opencode.ai",
+        "designSha256": "c45066c1cb47ba90c4bf91835c732ea0f070bcfe362a4e87d6a3d37f3a3752d2",
+        "tokensSha256": "4caac49a36567968015aa98565d6e2fcda2382a83358df628aaffd32c0c28a19",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "palette",
+          "finding": "当前Canvas rgb(253,252,252)/Heading rgb(32,29,29)与模板#fdfcfc/#201d1d角色一致，仅格式不同。",
+          "referencePointer": "tokens.json:color.primary/color.on-primary",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[1]",
+              "selector": "body",
+              "property": "background-color",
+              "value": "rgba(0, 0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[15]",
+              "selector": "body > div > main > div:nth-of-type(1) > div > section:nth-of-type(1) > div:nth-of-type(1) > p",
+              "property": "color",
+              "value": "rgb(100, 98, 98)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div > main > div:nth-of-type(1) > div > section:nth-of-type(1) > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(32, 29, 29)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[42]",
+              "selector": "body > div > main > div:nth-of-type(1) > section > nav:nth-of-type(1) > ul > li:nth-of-type(7) > a",
+              "property": "background-color",
+              "value": "rgb(32, 29, 29)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "hero-type",
+          "finding": "桌面hero38px/700/57px与参考38px/700/1.5一致；真实完整Berkeley Mono fallback栈保留。",
+          "referencePointer": "tokens.json:typography.display-xl",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div > main > div:nth-of-type(1) > div > section:nth-of-type(1) > div:nth-of-type(1) > h1",
+              "property": "font-size",
+              "value": "38px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "body-type",
+          "finding": "当前中文主体16px/32px、手机15px/27px；参考body-md16px/1.5对应24px。按当前语言和采样实例导出。",
+          "referencePointer": "tokens.json:typography.body-md",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[15]",
+              "selector": "body > div > main > div:nth-of-type(1) > div > section:nth-of-type(1) > div:nth-of-type(1) > p",
+              "property": "font-size",
+              "value": "16px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "shape-state",
+          "finding": "当前下载CTA4px、深灰底、定向hover rgb(48,44,44)支持参考近黑/charcoal体系；未执行页面安装命令。",
+          "referencePointer": "tokens.json:color.charcoal",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[1]",
+              "selector": "body",
+              "property": "background-color",
+              "value": "rgba(0, 0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[15]",
+              "selector": "body > div > main > div:nth-of-type(1) > div > section:nth-of-type(1) > div:nth-of-type(1) > p",
+              "property": "color",
+              "value": "rgb(100, 98, 98)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div > main > div:nth-of-type(1) > div > section:nth-of-type(1) > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(32, 29, 29)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[42]",
+              "selector": "body > div > main > div:nth-of-type(1) > section > nav:nth-of-type(1) > ul > li:nth-of-type(7) > a",
+              "property": "background-color",
+              "value": "rgb(32, 29, 29)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 95
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 80
+        }
+      ]
+    },
+    {
+      "id": "posthog",
+      "requestedUrl": "https://posthog.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://posthog.com/",
+      "capturedAt": "2026-10-14T10:48:04.965Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 42,
+      "counts": {
+        "colors": 8,
+        "gradients": 2,
+        "spacing": 0,
+        "radius": 4,
+        "shadows": 2
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "css-capture-capped",
+        "some-state-targets-unavailable"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "c3233f56cbd2d4da8e221654175a3d6258243e01a82587a867a1e93c14e5949b",
+        "fileHashes": {
+          "design.md": "ba998abb47a5853555929602becd9479bbc63249eacd767eee9a1c39d3758329",
+          "token.json": "1319242812cc87abc665a3ec97cac8546111957d78242a0006bc2041f5e90397",
+          "variables.css": "43018930d7a1df8df63129f91c9a28fdeb7fc7978fa5562d7dd37b25e3804b4c",
+          "theme.css": "5e2641f00562b859f71b8cd6cc92d95439d206bc17fa925fb6aa6cafc5755537"
+        }
+      },
+      "limits": [
+        "CSS capture is capped at 20000 declarations, prioritized for fonts, named custom properties and core elements; computed values and root variables are recorded separately.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "css-capture-capped",
+          "viewport": null,
+          "group": null,
+          "family": null
+        },
+        {
+          "qualityWarning": "some-state-targets-unavailable",
+          "viewport": null,
+          "group": null,
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/posthog",
+        "designSha256": "bdfbe5fe2b9dda1e9e4dd431c3c016b60d51764c62fe4ef992f72d5216dfbf13",
+        "tokensSha256": "79a02f8c02be3fa2e0a410be1eee897a6f371efc89b7d15f2d5a7f835c58efe0",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "scope/version difference",
+          "observedIssue": "参考IBM Plex Sans/cream blog风格；当前RoundHog、绿色草地OS桌面场景和半透明app窗口、36/30px标题。",
+          "evidencePointer": "capture/desktop-top.png; capture/mobile-top.png; selection.json#fontStacks",
+          "referencePointer": "DESIGN.md introduction; tokens.json#/typography",
+          "recommendation": "主题和页面版本差异不能强行追平参考palette。"
+        },
+        {
+          "classification": "layer role corrected",
+          "observedIssue": "参考primary #f7a501；本次实际CTA front span rgb235,157,42、a下缘基座rgb205,132,7，已分成primary与cta-base。仅父层computed会误认为主色更深。",
+          "evidencePointer": "samples[4].surfaces[0/1].styles.background-color; draft.md#Raised CTA Paint",
+          "referencePointer": "tokens.json#/color/primary",
+          "recommendation": "采CTA front/base层分别绑定作用；状态仍需按paint层读取。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 88
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 57
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 28
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 31
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 0
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 0
+        }
+      ]
+    },
+    {
+      "id": "replicate",
+      "requestedUrl": "https://replicate.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://replicate.com/",
+      "capturedAt": "2026-10-14T10:47:49.911Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 43,
+      "counts": {
+        "colors": 9,
+        "gradients": 1,
+        "spacing": 2,
+        "radius": 3,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "scroll-coverage-partial"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "46fb030a8febfdbaafa9ad97ad5a46c5d837ff1eace0600a8d77d6ee0a78dcab",
+        "fileHashes": {
+          "design.md": "f12fbbdfd1aefbee01a74452d412c81fae4fd35a91629dbde31c7fe412a18ea1",
+          "token.json": "16eec8724162b4a877f72aa189f64838b87715b984031ebf18a77454bf042ad1",
+          "variables.css": "0ac0ecc1ed5733e824a902183c37238a38331a0a9e83435b1ecf578687ecc3db",
+          "theme.css": "1138bb24796ead72cd56a819d5fd6ef8a2510c71057c1bf41e0dfd4401a00d3f"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial."
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/replicate",
+        "designSha256": "ba53fc6bf9464843aef12a7a5355c90c6b99b45f894da2b286bdc4adff85edf4",
+        "tokensSha256": "4a6336b4d9f85dbd9e492b80f22f7cbf466ea098458212224e3151cc1e270375",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "template-unsupported-current-scope",
+          "observedIssue": "Reference orange primary #ea2804 and cream narrative do not describe the current black Get started CTA on animated pink/orange/yellow hero and white catalogue. Orange might belong to another route or earlier design.",
+          "evidencePointer": "selection.json action; capture/desktop-top.png",
+          "referencePointer": "tokens.json $.color.primary; DESIGN.md opening",
+          "recommendation": "Preserve live action role and route/capture date; do not reinterpret the hero decorative color as CTA."
+        },
+        {
+          "category": "aligned",
+          "observedIssue": "Actual rb-freigeist-neue 72px desktop /48px mobile and basier-square/jetbrains-mono preserve the reference multi-font identity, with complete current stacks.",
+          "evidencePointer": "selection.json hero-desktop/hero-mobile; draft.md Typography",
+          "referencePointer": "tokens.json $.typography.display-xl",
+          "recommendation": "Retain code family and responsive roles."
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 149
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 138
+        }
+      ]
+    },
+    {
+      "id": "resend",
+      "requestedUrl": "https://resend.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://resend.com/",
+      "capturedAt": "2026-10-14T10:47:43.659Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 48,
+      "counts": {
+        "colors": 7,
+        "gradients": 3,
+        "spacing": 2,
+        "radius": 4,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "css-capture-capped",
+        "sampling-group-capped",
+        "scroll-coverage-partial"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "6d58fe799d4b5f0b1c26c6984729f6d388e9c83166586a7e073a2403f16bbb6c",
+        "fileHashes": {
+          "design.md": "30e6e0920640c1e95acc48ef8d549c8d9899f341bd08207b4ca4fce4dbf22e6d",
+          "token.json": "484639278d4e1f112b2fce8f8069f933aebf2cda85fdeea34cbc54cffac1c7b3",
+          "variables.css": "83297070e1a18b118556af527ffd96cb16d376e3b73f841892bc12becda9a12e",
+          "theme.css": "f19a0b6f5ad7ce68cf366c41dc670cac783302ebf81c90e545ddaecf34f468b6"
+        }
+      },
+      "limits": [
+        "CSS capture is capped at 20000 declarations, prioritized for fonts, named custom properties and core elements; computed values and root variables are recorded separately.",
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "css-capture-capped",
+          "viewport": null,
+          "group": null,
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "scroll-coverage-partial",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": null,
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "scroll-coverage-partial",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": null,
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/resend",
+        "designSha256": "c0d6b266b07842906eb1679d9548cae63dacf7a37b0c9f0a336ba67e9c8e0aa7",
+        "tokensSha256": "e079864509f75ef7b7b5ea79653d9b3af1d58718d66fb91ce69f66c3325f6af0",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "partial match and broader reference",
+          "observedIssue": "参考96px Domaine大标题与Desktop方向吻合；本次Mobile64px，当前主体Inter，ABC Favorit未被当前主要正文实例支持。",
+          "evidencePointer": "samples[0/1].elements[2]; samples[0].elements[36]; selection.json#fontStacks",
+          "referencePointer": "DESIGN.md introduction; tokens.json#/typography/display-xxl",
+          "recommendation": "保留实际fallback及viewport；未实例化reference fonts不用补进输出。"
+        },
+        {
+          "classification": "heading paint extraction corrected",
+          "observedIssue": "H1 actualpaint是.effect-font-gradient的white→half-alpha gradient，clip:text与text-fill透明，不能把computed继承rgb240当实际平色。已新增gradient-heading。",
+          "evidencePointer": "samples[0].elements[2].styles.background-image; source.declarations[12234..12244]",
+          "referencePointer": "DESIGN.md#Tokens — Colors; files/token.json#/gradient",
+          "recommendation": "读取text-fill/background-clip和字形gradient，按paint层而非color单属性匹配。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 161
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 152
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 62
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 62
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 0
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 0
+        }
+      ]
+    },
+    {
+      "id": "runwayml",
+      "requestedUrl": "https://runwayml.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://runway.com/",
+      "capturedAt": "2026-10-14T11:06:15.507Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 37,
+      "counts": {
+        "colors": 6,
+        "gradients": 1,
+        "spacing": 4,
+        "radius": 3,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped",
+        "some-state-targets-unavailable",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "eae0ea6bd87aaa7304c7d8c6df0c80884ee47f572409089e7aade0dea45c3b92",
+        "fileHashes": {
+          "design.md": "e86e85a5529da5b7f24b839a255f5ea3efec472ffddb50cd093f30b86da67c2a",
+          "token.json": "92853a783e007f941c9f2e8a5e1a972a4d071108a166554957f9a9942c96c784",
+          "variables.css": "ad7ad824a7fbd3586b3048bdec9d3a7f01acb9c78bcd77ae0774a0f803755761",
+          "theme.css": "d3b352cf647f034b1cd638b7456a98ee468f4739b34a50ebdd318620e5a4525b"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent action was clicked. State sampling uses hover, keyboard focus and Escape cleanup."
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/runwayml",
+        "designSha256": "7a2ce8ecf0cf2bc600cb20b9e321193328b2f5f6665fa06780fcee5fbf5821fe",
+        "tokensSha256": "68922a8ae168d049e6de9cf747345395a5612616b1a52c6edcb4d665c2dc424b",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "reference-internal-inconsistency",
+          "observedIssue": "Template prose names abcNormal but tokens.json typography.body is Inter; current rendered brand uses abcNormal. Template contains an abnormally long color key made from a prose paragraph.",
+          "evidencePointer": "selection.json body.font-family; capture/supplement-top-1440.png",
+          "referencePointer": "DESIGN.md intro; tokens.json $.typography.body; $.color first key",
+          "recommendation": "Do not use generated template files as official normative truth; compare their internal consistency."
+        },
+        {
+          "category": "capture-state-contamination",
+          "observedIssue": "Baseline hover Creative leaves a menu covering desktop hero; Cookiebot late panel covers mobile. Supplemental Escape/default viewport demonstrates actual video hero without accepting consent.",
+          "evidencePointer": "capture/desktop-top.png; capture/mobile-top.png; capture/supplement-top-1440.png; capture/supplement-top-390.png",
+          "referencePointer": "DESIGN.md cinematic imagery",
+          "recommendation": "Reset pointer/menus before default screenshot and record late consent timing."
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 147
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 136
+        }
+      ]
+    },
+    {
+      "id": "sentry",
+      "requestedUrl": "https://sentry.io/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://sentry.io/welcome/",
+      "capturedAt": "2026-10-14T10:48:17.729Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 50,
+      "counts": {
+        "colors": 7,
+        "gradients": 2,
+        "spacing": 3,
+        "radius": 4,
+        "shadows": 3
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "58617f6ec6a48c92d5dcdba379fa373ab49c02b20a5da19b5369cc046e4686e4",
+        "fileHashes": {
+          "design.md": "7aea516d61b600309d221ae747b301d9c3520757bccb7e72fcf04bcfab504e8d",
+          "token.json": "97539898d3be8cbc7f82e98cdc9e16065ef228f8427fe968029c515d7e121eb1",
+          "variables.css": "62756eef3807203a6ab2a6d711dbe24556ca81ba05ac01b5bdefda0efdf3e0a2",
+          "theme.css": "e381e8ed53e89a5dac5cfce12a076013a97ec4227dc7e281fea55e88d8923ea4"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "navigation",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "navigation",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "layout",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "footer",
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/sentry",
+        "designSha256": "49b97ceb276d38ee07fe29079ec92c5708b443e8b40665491ca834ad59e41a15",
+        "tokensSha256": "070cefb3e8abc321d161bd44c9ffac4eaf8fd48c16e7052a78392578f20c8234",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "scope/version difference",
+          "observedIssue": "参考Sentri-Inspired声明light，并用Sentri Display；本次Marketing Mode为深紫背景，Dammit Sans真实font，白h1和粉色breaks fragment。88pxDesktop与参考匹配，Mobile约50px。",
+          "evidencePointer": "capture/desktop-top.png; samples[0/1].elements[2]; selection.json#fontStacks",
+          "referencePointer": "DESIGN.md#Theme; tokens.json#/typography/display-hero",
+          "recommendation": "inspired并非官方规范；按当前Mode与真实family提取。"
+        },
+        {
+          "classification": "incorrect template role for sampled instance",
+          "observedIssue": "参考primary暗色底白字；当前GET STARTED为白色paint layer、深紫字；紫色MCP公告CTA和主注册按钮独立，不能将公告hover代替注册hover。",
+          "evidencePointer": "primary-cta-layer-supplement; states targeted GET STARTED",
+          "referencePointer": "tokens.json#/color/primary; DESIGN.md Components",
+          "recommendation": "分清header/公告/hero实际CTA角色和phase。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 165
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 155
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 42
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 39
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 0
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 0
+        }
+      ]
+    },
+    {
+      "id": "shopify",
+      "requestedUrl": "https://www.shopify.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://www.shopify.com/",
+      "capturedAt": "2026-10-14T11:06:34.631Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 41,
+      "counts": {
+        "colors": 9,
+        "gradients": 1,
+        "spacing": 4,
+        "radius": 3,
+        "shadows": 1
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "4375f9d6ea1938095f3ba53efb9fae9f0f6284ec5a7b092d43eb7023e8d6b3f7",
+        "fileHashes": {
+          "design.md": "e57343c3c98d17b97e0140d5bbc3fe534e634cdc17c8d30e3a9432c802e60978",
+          "token.json": "731855ecd4522020eeae3c72b5c7115ad523ed7f69090499c37246b5d5ee4f10",
+          "variables.css": "314e6f52e1bc7e4c3464a2108c3c824c31337b357c990d03a4348a188e62d128",
+          "theme.css": "9dd6658b28b39bc7cb067f7af8cb0df6eb76f6162c1a375e7d5fd0a9406f2d43"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial."
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/shopify",
+        "designSha256": "323d19cd8fc9c60928ea932081c64eee512ff60864d0b778be2ae62591897218",
+        "tokensSha256": "a9a87881c046b64a723274e9a7ca5e1e57747e1c97817cf58cb15a76a1dd79e8",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "template-inspired-scope-difference",
+          "observedIssue": "Reference explicitly says Shopifi-Inspired, light theme and NeueHaasGrotesk; actual sampled marketing homepage is dark/video, uses Shopify-Inter, and white filled pill CTA.",
+          "evidencePointer": "selection.json hero-desktop/action; capture/supplement-top-1440.png",
+          "referencePointer": "DESIGN.md title/opening; tokens.json $.typography.display-xxl; $.color.primary",
+          "recommendation": "Compare original route and current role; keep Inspired library separate from actual brand evidence."
+        },
+        {
+          "category": "capture-omission",
+          "observedIssue": "Baseline visually shows main hero but headings sampling misses it during animated transition; supplemental capture observes actual h1 96px/56px.",
+          "evidencePointer": "capture/evidence.json samples headings; capture/evidence-enriched.json supplemental elements; selection.json hero-desktop",
+          "referencePointer": "tokens.json $.typography.display-xxl",
+          "recommendation": "Use visible display text + readiness and DOM fragment sampling; do not substitute downstream h2 as main hero."
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 147
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 139
+        }
+      ]
+    },
+    {
+      "id": "slack",
+      "requestedUrl": "https://slack.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://slack.com/intl/zh-cn/",
+      "capturedAt": "2026-10-14T10:48:36.763Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 37,
+      "counts": {
+        "colors": 7,
+        "gradients": 1,
+        "spacing": 3,
+        "radius": 3,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "css-capture-capped",
+        "sampling-group-capped",
+        "visible-overlay"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "ca684bbc138091da949dcb5ec2f32fb94eb505055077e0d563da590d3ef68196",
+        "fileHashes": {
+          "design.md": "aa655088601c8f628f31e6ec026b76198d5db19617280ae108b21104a5c0fc51",
+          "token.json": "9f3c9382f2a69a09d60be20314f39cf66bb596a225e636d9d7c65790b25e802a",
+          "variables.css": "7fb9e4f9fa9dbd32e1d67febceafa370a78077c44ab649504e7ff7c3c86b6743",
+          "theme.css": "892f3f02f80a0753a73bb0cdded9dc75ad59aceda116151f50858e5a6d451311"
+        }
+      },
+      "limits": [
+        "CSS capture is capped at 20000 declarations, prioritized for fonts, named custom properties and core elements; computed values and root variables are recorded separately.",
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "A visible consent/modal overlay was recorded; no consent was submitted or dismissed."
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/slack",
+        "designSha256": "51419e710d22a822ade99a87bca68766ea972175f78264c7db97f3cd3d90bcd4",
+        "tokensSha256": "868165184e4ec9119bde60dbf69b4617e0feb02648c7deac34989262d32bf95a",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "locale-scope-difference",
+          "observedIssue": "Root redirects to intl/zh-cn. Actual NotoSansSC body/MXiangHeHeiSCProBold 64px desktop and32px mobile heading differ from Salesforce font-based reference. This is locale-specific, not proof of incorrect brand extraction.",
+          "evidencePointer": "capture/evidence.json finalUrl; selection.json body/hero-desktop/hero-mobile",
+          "referencePointer": "tokens.json $.typography.body/display",
+          "recommendation": "Keep requested URL and final locale; do not force English typography onto zh-cn."
+        },
+        {
+          "category": "component-role-difference",
+          "observedIssue": "Hero CTA is rgb(113,4,145) while nav CTA is rgb(115,3,148); reference aubergine #611f69 is broader than this action role, while dark-band #481a54 matches observed AI section.",
+          "evidencePointer": "selection.json action; capture/evidence.json $.samples[0].elements[70] and surfaces[4]",
+          "referencePointer": "tokens.json $.color.aubergine/iris/deep-plum",
+          "recommendation": "Preserve distinct navigation/hero/dark-section bindings instead of one purple for all roles."
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 159
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 120
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 4
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 5
+        }
+      ]
+    },
+    {
+      "id": "spotify",
+      "requestedUrl": "https://www.spotify.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://open.spotify.com/",
+      "capturedAt": "2026-10-14T10:59:07.399Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 38,
+      "counts": {
+        "colors": 7,
+        "gradients": 1,
+        "spacing": 4,
+        "radius": 4,
+        "shadows": 2
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "css-capture-capped",
+        "sampling-group-capped",
+        "source-horizontal-overflow"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "7a8aeeed47af8450b1bdb798dc12d07d799202bf139f7a380e708f6c2caf652c",
+        "fileHashes": {
+          "design.md": "ab70389a2d9ef893a3abc1180c06bf9b88dee2ff7bb7f3e3e4038beabe8d872c",
+          "token.json": "93ba8c1d898380b300a02a1a087b79e1ab5661bf5f5c880fe07914c078b1a30e",
+          "variables.css": "6c85c6cc6c50b1acbf405d30241f4fe1b409f3382041c613d062cc75df723c28",
+          "theme.css": "f6b678356b831da9a406e3fd74ed4d9808dc5f552de555d4b704e8a0ff5fa43b"
+        }
+      },
+      "limits": [
+        "CSS capture is capped at 20000 declarations, prioritized for fonts, named custom properties and core elements; computed values and root variables are recorded separately.",
+        "Cross-origin CSS capture capped at 12 observed stylesheets.",
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "www.spotify.com 自动转 open.spotify.com，范围是 Web Player 而不是营销首页。",
+        "必须取 CTA span 的黑字白底；button 继承灰色/透明值不能作可见 CTA 角色。",
+        "手机视口裁切属于源站结果；没有播放、登录、创建歌单或注册。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/spotify",
+        "designSha256": "7b3ce08108c280535e2e52b4561a3d967440c0eb9415475aefff82baa2b1d99d",
+        "tokensSha256": "653fff00e946e780898f29deabbc4d58312c0dbcb149131a8e2868fdb0a6bee6",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "theme",
+          "finding": "参考 Markdown/JSON metadata 为 light，描述却称 dark；当前 Web Player 两视口明确 dark。不是照抄模板 theme。",
+          "referencePointer": "DESIGN.md:4",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[16]",
+              "selector": "#card-title-spotify\\:track\\:3LVkyYg0PSo8XInTPKKhZM-0",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[3]",
+              "selector": "#\\:r5\\:",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[91]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(2) > button:nth-of-type(2) > span",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "font",
+          "finding": "实时正文 SpotifyMixUI，分区标题 SpotifyMixUITitle；参考只列 SpotifyMixUI。长中文/Emoji fallback 栈按实时 computed 值保留。",
+          "referencePointer": "DESIGN.md Typography",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[16]",
+              "selector": "#card-title-spotify\\:track\\:3LVkyYg0PSo8XInTPKKhZM-0",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[3]",
+              "selector": "#\\:r5\\:",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[91]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(2) > button:nth-of-type(2) > span",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "type",
+          "finding": "参考 tokens.json typography.button.fontSize 为 0.14px；当前可见操作为 14px 或 16px。该值不支持当前采样操作，不修成猜测值。",
+          "referencePointer": "tokens.json:typography.button.$value.fontSize",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[16]",
+              "selector": "#card-title-spotify\\:track\\:3LVkyYg0PSo8XInTPKKhZM-0",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[3]",
+              "selector": "#\\:r5\\:",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[91]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(2) > button:nth-of-type(2) > span",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "palette",
+          "finding": "参考 Spotify Green/status/accent 色可能属于播放或其它状态；当前没有操作播放，导出实际黑灰/白胶囊及注册横幅渐变。",
+          "referencePointer": "tokens.json:color.color-4",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(0, 0, 0)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[16]",
+              "selector": "#card-title-spotify\\:track\\:3LVkyYg0PSo8XInTPKKhZM-0",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[3]",
+              "selector": "#\\:r5\\:",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[91]",
+              "selector": "body > div:nth-of-type(4) > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(2) > button:nth-of-type(2) > span",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 111
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 57
+        }
+      ]
+    },
+    {
+      "id": "supabase",
+      "requestedUrl": "https://supabase.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://supabase.com/",
+      "capturedAt": "2026-10-14T10:47:11.139Z",
+      "httpStatus": 200,
+      "captureVersion": 2,
+      "compilerVersion": "2.1.0",
+      "checks": 42,
+      "counts": {
+        "colors": 7,
+        "gradients": 0,
+        "spacing": 4,
+        "radius": 4,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "sampling-group-capped"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "0a2a931d5da0facb90a617139123c7cbc4b129ca86ebfa6def42cebedbf9abaf",
+        "fileHashes": {
+          "design.md": "ff15086e55b6eba58a84ed1256d888054ec84909e70172cf84351c5edf34728a",
+          "token.json": "a99b0ec33353d2d5afc832371b8e3a7d0e37439b59992c91b27f9ae80ca652bd",
+          "variables.css": "846e62313da4a051b2cf32c202d33ecfc03d3b188eae254f9ef0c0b77f252772",
+          "theme.css": "9761304902b1fe07ba97cc21d166822d04eb04d96f7b0f4da34850451fe780cf"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted supplement added CTA actual glyphs/states and visible code/mono text; original automatic evidence saved separately.",
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "group": "footer",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "text",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "actions",
+          "family": null
+        },
+        {
+          "qualityWarning": "sampling-group-capped",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "group": "footer",
+          "family": null
+        }
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/supabase",
+        "designSha256": "9b7f1ae7b41480e9067318ef284ffe1642d4706e32cdbf20f980ad9c9e4caf42",
+        "tokensSha256": "d0482da36b420b254ffb85500c71661b481088122f3d45e81dba4905e8eee1ec",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "classification": "scope/version difference",
+          "observedIssue": "参考Supabaze-Inspired使用Circular和64px主display；本次Manrope h1为46/34px、正文Inter、代码Source Code Pro。",
+          "evidencePointer": "samples[0].elements[2].styles.font-family; samples[1].elements[2].styles.font-size",
+          "referencePointer": "DESIGN.md#Tokens — Typography; tokens.json#/typography/display-xxl",
+          "recommendation": "保留当前真实family与viewport，不复制inspired的全scale。"
+        },
+        {
+          "classification": "incorrect template role for sampled instance",
+          "observedIssue": "参考primary #3ecf8e；当前实际CTA是oklch(0.525 0.12 157.5)，绿色logo或其它声明出现不证明其为此CTA填充。",
+          "evidencePointer": "states targeted Start your project baseline background-color",
+          "referencePointer": "tokens.json#/color/primary",
+          "recommendation": "比较实际CTA角色及state，不按全局存在色值确认同角色。"
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 147
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 139
+        },
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 62
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 59
+        }
+      ]
+    },
+    {
+      "id": "webflow",
+      "requestedUrl": "https://webflow.com/",
+      "status": "passed-with-documented-limits",
+      "finalUrl": "https://webflow.com/",
+      "capturedAt": "2026-10-14T11:00:21.016Z",
+      "httpStatus": 200,
+      "captureVersion": 3,
+      "compilerVersion": "2.1.0",
+      "checks": 40,
+      "counts": {
+        "colors": 7,
+        "gradients": 0,
+        "spacing": 4,
+        "radius": 2,
+        "shadows": 0
+      },
+      "typographyEntries": 2,
+      "qualityStatus": "review",
+      "qualityWarningCodes": [
+        "opaque-consent-host",
+        "sampling-group-capped"
+      ],
+      "originWarningCount": 0,
+      "zip": {
+        "crcVerified": true,
+        "fourFilesVerified": true,
+        "sha256": "dd50db498d059535f2748cac9e0a116ed10131194682398ac93fce1ea9febeab",
+        "fileHashes": {
+          "design.md": "196187300ae1f02b454ef9dfc5419be6507157494c020bc5b9f6be115e24a6fa",
+          "token.json": "9bd3a08b68c1572c4dee5b680ad34f4c6766aaffb4756914b57b0bc7fe7378d1",
+          "variables.css": "a9ca9ba0ec70c8b5fc5e7c8ca5c9bfbfcc84d67c698df2cf4c6df8d105b0ebf9",
+          "theme.css": "0cf0e61f2c5dab2808835d99296c9736d18ad6471c701f6f391bee65cbe3e549"
+        }
+      },
+      "limits": [
+        "Some sampling groups or scroll coverage reached their stated limits; coverage is partial.",
+        "Targeted primary CTA state supplement used an anonymous fresh render; recorded separately from initial default screenshots.",
+        "主 CTA 需独立绑定 Get started，自动状态候选中的首个蓝色 action 是公告链接。",
+        "部分 hover color 为 transition 中间态，只记录观察值，不把瞬时值定义为稳态 palette。",
+        "当前页采用 WF Visual Sans Variable，不从模板推断 Inter/mono。",
+        "新版有界DOM检查记录 body 后方 fixed #transcend-consent-manager opaque边界（opaque-host-check.json）；此metadata不证明面板可见/closed shadow，也不表示已读内部CSS。截图可见Cookie面板，内部CSS仍未采。"
+      ],
+      "reference": {
+        "url": "https://github.com/ricocc/ricoui-design-md/tree/570aef63c0b747db8110efae161299948d83b9e6/public/brands/webflow",
+        "designSha256": "1db9f200fb960880fa9ac9887930134d0f80c2e7bd22b6e4b0afc676801a0ef0",
+        "tokensSha256": "d00f6e2fdf343f705b4ef7dbbf145b8b4dc427f8fe7bc59ede1f481ada1ee2db",
+        "thirdParty": true
+      },
+      "comparisonFindings": [
+        {
+          "category": "matched-role-with-format-difference",
+          "dimension": "hero-type",
+          "finding": "参考 display-xxl 的80px/83.2px/-0.8px与桌面 h1一致；实际font fallback 为Arial，参考Inter，不替换实际栈。",
+          "referencePointer": "tokens.json:typography.display-xxl",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > h1",
+              "property": "font-size",
+              "value": "80px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "primary-action",
+          "finding": "参考主色primary=#080808作为概括；当前实际Get started为rgb(20,110,245)，定向hover为rgb(0,85,212)，按CTA角色而非概括主色导出。",
+          "referencePointer": "tokens.json:color.primary",
+          "evidence": [
+            {
+              "pointer": "samples[0].elements[101]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(1) > a",
+              "property": "background-color",
+              "value": "rgb(20, 110, 245)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[101]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(1) > a",
+              "property": "color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "states[3].hover",
+              "selector": null,
+              "property": "background-color",
+              "value": "rgb(0, 85, 212)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[101]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(1) > a",
+              "property": "padding-right",
+              "value": "24px",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "template-not-supported-in-current-scope",
+          "dimension": "secondary-font",
+          "finding": "参考 WFVisualSans-Mono/Inconsolata 未在当前可见文字中形成真实mono字体角色；Google Inconsolata CSS请求超时属于访问限制，不据模板补造。",
+          "referencePointer": "DESIGN.md Typography",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[26]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > p",
+              "property": "color",
+              "value": "rgb(8, 8, 8)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(8, 8, 8)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[101]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(1) > a",
+              "property": "background-color",
+              "value": "rgb(20, 110, 245)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        },
+        {
+          "category": "scope-version-difference",
+          "dimension": "composition",
+          "finding": "当前agentic平台hero与产品示例、公告和中文Cookie面板；参考自称 Inspired，不能用其广泛产品色直接判实时提取错误。",
+          "referencePointer": "DESIGN.md:2",
+          "evidence": [
+            {
+              "pointer": "samples[0].surfaces[0]",
+              "selector": "body > div:nth-of-type(1)",
+              "property": "background-color",
+              "value": "rgb(255, 255, 255)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[26]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > p",
+              "property": "color",
+              "value": "rgb(8, 8, 8)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[2]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > h1",
+              "property": "color",
+              "value": "rgb(8, 8, 8)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            },
+            {
+              "pointer": "samples[0].elements[101]",
+              "selector": "body > div:nth-of-type(1) > main > section:nth-of-type(1) > div:nth-of-type(3) > div > div:nth-of-type(1) > div > div:nth-of-type(1) > a",
+              "property": "background-color",
+              "value": "rgb(20, 110, 245)",
+              "viewport": {
+                "width": 1440,
+                "height": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "sampleProvenance": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "observedElementCount": 156
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "observedElementCount": 150
+        }
+      ]
+    }
+  ]
+}

@@ -22,6 +22,7 @@ export function fontInventory(evidence){
   const inventory=new Map();
   for(const [i,sample]of(evidence.samples||[]).entries())for(const [j,el]of(sample.elements||[]).entries()){
     if(['root','layout','surface','overlays'].includes(el.group))continue;
+    if((el.textOwner===false||(el.textOwner===undefined&&el.directText!==undefined&&!el.directText.trim()))&&!['input','textarea','select'].includes(el.tag))continue;
     if(!el.text?.trim()&&!['input','textarea'].includes(el.tag))continue;
     const stack=el.styles?.['font-family'];if(!stack)continue;const primary=families(stack)[0];
     if(!inventory.has(primary))inventory.set(primary,{primary,stack,occurrences:0,roles:new Set(),examples:[]});
@@ -35,9 +36,12 @@ export function qualityReview(tokens,evidence){
   for(const family of inventory)if(!included.has(family.primary))warnings.push({code:'observed-font-omitted',family:family.primary,roles:family.roles,examples:family.examples});
   if(evidence.source?.declarationsTruncated)warnings.push({code:'css-capture-capped'});
   for(const [i,sample]of(evidence.samples||[]).entries()){
+    if(!sample.elements?.length)warnings.push({code:'missing-core-capture',viewport:sample.viewport});
     for(const [group,coverage]of Object.entries(sample.coverage||{}))if(coverage.truncated)warnings.push({code:'sampling-group-capped',viewport:sample.viewport,group,available:coverage.available,captured:coverage.captured});
     if(sample.scrollCoverage?.capped)warnings.push({code:'scroll-coverage-partial',viewport:sample.viewport,...sample.scrollCoverage});
-    if(sample.overlays?.length)warnings.push({code:'visible-overlay',viewport:sample.viewport,overlays:sample.overlays});
+    if(sample.opaqueConsentHosts?.length)warnings.push({code:'opaque-consent-host',viewport:sample.viewport,hosts:sample.opaqueConsentHosts});
+    if(sample.fontStatus==='loading')warnings.push({code:'fonts-still-loading',viewport:sample.viewport});
+    if(sample.overlays?.length||sample.overlaysBeforeStates?.length)warnings.push({code:'visible-overlay',viewport:sample.viewport,overlays:sample.overlays,overlaysBeforeStates:sample.overlaysBeforeStates});
     if(sample.viewport?.width&&sample.scrollWidth>sample.viewport.width+1)warnings.push({code:'source-horizontal-overflow',viewport:sample.viewport,scrollWidth:sample.scrollWidth});
   }
   const states=evidence.states||[];

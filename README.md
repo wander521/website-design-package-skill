@@ -6,7 +6,7 @@
 用 $website-design-package 提取 https://目标网站
 ```
 
-基于 [RICOUI DESIGN](https://github.com/ricocc/ricoui-design-md) 的 Markdown 解析与导出流程，当前版本 **2.0.0**。
+基于 [RICOUI DESIGN](https://github.com/ricocc/ricoui-design-md) 的 Markdown 解析与导出流程，当前版本 **2.1.0**。
 
 ## 输出
 
@@ -107,9 +107,9 @@ node scripts/build.mjs pack output/site/files output/site/design-package.zip
 ## 测试与实测
 
 ```sh
-npm run test:unit     # 23 项编译、证据、引用、导出和打包测试
-npm run test:browser  # 3 项真实浏览器与本地采集测试
-npm test             # 全部 26 项测试
+npm run test:unit     # 27 项编译、证据、引用、导出和打包测试
+npm run test:browser  # 8 项真实浏览器与本地采集测试
+npm test             # 全部 35 项测试
 ```
 
 已有运行时也可通过 `DESIGN_TEST_PLAYWRIGHT=<node_modules目录>` 指定测试依赖。测试使用临时目录和本地 HTTP 页面，不依赖实时品牌网站。
@@ -117,6 +117,10 @@ npm test             # 全部 26 项测试
 2026-10-14 的 v2 实测覆盖 **Apple、Notion、Linear、Raycast、Stripe、Vercel**：六份新版包合计 **311 项 CSS 校验通过**，新旧共 12 份 ZIP 的四文件集合、CRC 和 SHA-256 核验通过。
 
 这次对照修复了跨域 CSS 遗漏、动画截图时序、次要字体漏选、中文变量冲突、孤立 token 行、hover/focus 混合和深层 DOM 元素误选等问题。详细范围与限制见 [验证说明](docs/validation.md)。
+
+v2.1.0 新增 **24 个真实网站测试**：**23 份限定范围设计包通过**，合计 **952 项 CSS 检查**；Airbnb 主体加载不完整，不计为成功。每份成功 ZIP 都核验了恰好四文件、CRC 和 SHA-256。已有六站保持为历史结果，不重复计数。
+
+本轮修复了 CTA/nav 内部字形、非 h1 主标题、Cookie 面板误选/漏报、菜单残留、导航中断、字体截图超时、空视口采样及 var() 类型验证。多次捕获与不可读组件均保留范围说明。详见 [v2.1 验证报告](docs/validation-v2.1.md)、[机器可读记录](docs/benchmark-v2.1.json) 和 [变更日志](CHANGELOG.md)。
 
 GitHub Actions 会在 push 和 pull request 时执行测试。上面的实测结果来自本地验证；远程 CI 结果以 Actions 页面为准。
 
@@ -138,7 +142,7 @@ scripts/                 采集、摘要、编译、验证和打包
 scripts/vendor/          固定版本的上游解析/导出模块及许可证
 references/              语法、浏览器替代流程、模板对照和来源说明
 tests/                   回归测试
-docs/validation.md       六站实测说明
+docs/                    历史六站、新版24站报告与机器记录
 ```
 
 ## 来源与许可证
