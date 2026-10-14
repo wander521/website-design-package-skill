@@ -1,0 +1,6 @@
+interface:
+  display_name: "Website Design Package"
+  short_description: "Extract verified website tokens and a four-file design ZIP"
+  default_prompt: "Use $website-design-package to extract the design system from this URL and deliver a validated ZIP with design.md, token.json, variables.css, and theme.css."
+policy:
+  allow_implicit_invocation: true

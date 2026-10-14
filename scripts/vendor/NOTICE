@@ -1,0 +1,8 @@
+This skill includes code derived from ricocc/ricoui-design-md,
+https://github.com/ricocc/ricoui-design-md
+commit 570aef63c0b747db8110efae161299948d83b9e6, licensed Apache-2.0.
+Changes: TypeScript types removed; imports made relative; utility reduced to slugify.
+See RICOUI-LICENSE and references/upstream.md.
+
+Includes marked 18.0.3 by Christopher Jeffrey and contributors, licensed MIT.
+See MARKED-LICENSE.

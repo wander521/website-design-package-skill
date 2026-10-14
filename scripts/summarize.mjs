@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import {fontInventory} from './quality.mjs';
+const [file,...args]=process.argv.slice(2);
+if(!file){console.error('Usage: node summarize.mjs EVIDENCE [--tags html,body,h1,button]');process.exit(1);}
+const e=JSON.parse(fs.readFileSync(file,'utf8'));const index=args.indexOf('--tags');
+const tags=new Set((index>=0?args[index+1]:'html,body,h1,h2,h3,p,button,input,nav,article,section').split(','));
+const props=['color','background-color','background-image','font-family','font-size','font-weight','line-height','letter-spacing','padding-top','padding-right','gap','border-radius','border-top-color','border-top-width','box-shadow','max-width'];
+const styles=el=>Object.fromEntries(props.filter(p=>el.styles[p]!==undefined).map(p=>[p,el.styles[p].length>220?el.styles[p].slice(0,220)+' [summary truncated; read exact evidence]':el.styles[p]]));
+const root=(e.source?.declarations||[]).filter(d=>/(:root|^html\b|^body\b)/.test(d.selector||'')&&d.property?.startsWith('--')).slice(0,16);
+const source={title:e.source?.title,language:e.source?.language,links:e.source?.links,breakpoints:e.source?.breakpoints?.slice(0,14),containerQueries:e.source?.containerQueries?.slice(0,8),inaccessibleStylesheets:e.source?.inaccessibleStylesheets?.length,externalCssRead:e.source?.externalStylesheets?.filter(x=>x.status==='read').length,declarationsTruncated:e.source?.declarationsTruncated,rootVariables:root};
+const samples=e.samples.map((sample,i)=>{const seen=new Set();const elements=[];for(const [j,el]of sample.elements.entries()){if(!tags.has(el.tag)&&el.group!=='text-fragments')continue;const signature=el.tag+JSON.stringify(styles(el));if(seen.has(signature))continue;seen.add(signature);elements.push({pointer:`samples[${i}].elements[${j}]`,tag:el.tag,group:el.group,selector:el.selector,text:(el.directText||el.text)?.slice(0,65),styles:styles(el)});if(elements.length>=12)break;}return{viewport:sample.viewport,scrollWidth:sample.scrollWidth,coverage:sample.coverage,scrollCoverage:sample.scrollCoverage,overlays:sample.overlays,surfaces:sample.surfaces?.slice(0,3).map(el=>({selector:el.selector,pseudo:el.pseudo,styles:styles(el)})),elements};});
+console.log(JSON.stringify({requestedUrl:e.requestedUrl,finalUrl:e.finalUrl,capturedAt:e.capturedAt,captureVersion:e.captureVersion,colorScheme:e.colorScheme,notes:e.notes,fontInventory:fontInventory(e),source,states:e.states?.map(s=>({selector:s.selector,viewport:s.viewport,hover:!!s.hover,keyboardFocus:!!s.focus,focusVisible:s.focus?.focusVisible,error:s.error})),samples},null,2));

@@ -1,0 +1,10 @@
+Website Design Package Skill
+Copyright 2026 website-design-package-skill contributors
+
+Includes code derived from ricocc/ricoui-design-md,
+https://github.com/ricocc/ricoui-design-md
+commit 570aef63c0b747db8110efae161299948d83b9e6 (Apache-2.0).
+Changes are documented in references/upstream.md.
+
+Includes marked 18.0.3 by Christopher Jeffrey and contributors (MIT).
+See scripts/vendor/MARKED-LICENSE and scripts/vendor/NOTICE.
