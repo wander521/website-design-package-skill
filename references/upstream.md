@@ -22,3 +22,5 @@ The orchestration layer intentionally differs from the website's general editor 
 The upstream README describes its tokens as DTCG. The actual export code uses strings for dimensions/colors and custom typography arrays; this skill describes it as RICOUI-compatible DTCG-style JSON to avoid promising strict conformance.
 
 Maintainer regression checks: `node --test tests/pipeline.test.mjs` for compilation/ZIP invariants; `node --test tests/browser.test.mjs` with `DESIGN_TEST_PLAYWRIGHT=<modules>` for real browser CSS checks. `node --test tests/capture.test.mjs` exercises full capture against an isolated local fixture, including cross-origin CSS, dense navigation, deep selectors, technical text and shadow consent.
+
+The v2.2 adapter also preserves parsed Components and the control coverage ledger in `token.json.$extensions["website-design-package"]`. This is additive to the upstream core groups; it is not an upstream component implementation or a strict DTCG compatibility certification. CSS remains token declarations.

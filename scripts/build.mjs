@@ -1,3 +1,4 @@
+import {controlCoverage} from './control-coverage.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -128,9 +129,11 @@ export function compile(markdown,evidence) {
   for(const row of variableRows)if(!present.has(row.name)){extra.push(`  ${row.name}: ${row.value};`);present.add(row.name);}
   theme=theme.replace(/}\s*$/,extra.join('\n')+'\n}\n');
   guardReferences(declarations(theme),'theme.css');
-  const files={'design.md':normalized,'token.json':exportToJson(tokens)+'\n','variables.css':variables,'theme.css':theme};
+  const json=JSON.parse(exportToJson(tokens));
+  json.$extensions={'website-design-package':{components:tokens.components||[],controlCoverage:controlCoverage(tokens.components||[]),note:'Component descriptions and implementation requirements from design.md; CSS files contain tokens, not component implementations.'}};
+  const files={'design.md':normalized,'token.json':JSON.stringify(json,null,2)+'\n','variables.css':variables,'theme.css':theme};
   const hashes=Object.fromEntries(Object.entries(files).map(([n,v])=>[n,hash(v)]));
-  return {files,report:{schemaVersion:1,compilerVersion:'2.1.0',captureVersion:evidence.captureVersion||1,sourceUrl:evidence.requestedUrl,finalUrl:evidence.finalUrl,capturedAt:evidence.capturedAt,sourceSha256:hash(normalized),hashes,browserVerified:false,cssChecks:checks,quality:{...qualityReview(tokens,evidence),...(originWarnings.length?{status:'review'}:{}),originWarnings},counts:Object.fromEntries(['colors','gradients','spacing','radius','shadows'].map(g=>[g,tokens[g].length])),format:'RICOUI-compatible JSON (DTCG-style, not a strict DTCG conformance claim)',upstream:'ricocc/ricoui-design-md@570aef63c0b747db8110efae161299948d83b9e6'}};
+  return {files,report:{schemaVersion:1,compilerVersion:'2.2.0',captureVersion:evidence.captureVersion||1,sourceUrl:evidence.requestedUrl,finalUrl:evidence.finalUrl,capturedAt:evidence.capturedAt,sourceSha256:hash(normalized),hashes,browserVerified:false,cssChecks:checks,quality:{...qualityReview(tokens,evidence),...(originWarnings.length?{status:'review'}:{}),originWarnings},counts:Object.fromEntries(['colors','gradients','spacing','radius','shadows'].map(g=>[g,tokens[g].length])),format:'RICOUI-compatible JSON (DTCG-style, not a strict DTCG conformance claim)',upstream:'ricocc/ricoui-design-md@570aef63c0b747db8110efae161299948d83b9e6'}};
 }
 // Dependency-free, deterministic ZIP (UTF-8, stored entries, fixed timestamps).
 function crc32(bytes){let crc=0xffffffff;for(const byte of bytes){crc^=byte;for(let bit=0;bit<8;bit++)crc=(crc>>>1)^((crc&1)?0xedb88320:0);}return(crc^0xffffffff)>>>0;}

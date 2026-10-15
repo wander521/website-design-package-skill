@@ -1,0 +1,308 @@
+{
+  "version": "2.2.0",
+  "date": "2026-10-15",
+  "legacyAudit": {
+    "packages": 23,
+    "summary": {
+      "hasDialogSection": 0,
+      "hasDropdownSection": 0,
+      "hasImplementationContract": 0,
+      "hasCoverageLedger": 0,
+      "hasJsonComponents": 0
+    },
+    "sites": [
+      {
+        "site": "cal",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "clickhouse",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "cohere",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "cursor",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "expo",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "figma",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "framer",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "hashicorp",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "mintlify",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "mongodb",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "nvidia",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "ollama",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "opencode.ai",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "posthog",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "replicate",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "resend",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "runwayml",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "sentry",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "shopify",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "slack",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "spotify",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "supabase",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      },
+      {
+        "site": "webflow",
+        "hasDialogSection": false,
+        "hasDropdownSection": false,
+        "hasImplementationContract": false,
+        "hasCoverageLedger": false,
+        "hasJsonComponents": false
+      }
+    ]
+  },
+  "regressionTests": 43,
+  "controlFamilies": 19,
+  "publicExamples": [
+    {
+      "id": "radix-dialog",
+      "url": "https://www.radix-ui.com/primitives/docs/components/dialog",
+      "finalUrl": "https://www.radix-ui.com/primitives/docs/components/dialog",
+      "capturedAt": "2026-10-15T02:20:12.125Z",
+      "captureVersion": 4,
+      "evidenceSha256": "820ad3ec06a93cab4f0b693d74ad6337b3ca6f5541dedcf82e11fd87a1e87067",
+      "interactions": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "trigger": "button[aria-haspopup=\"dialog\"]:has-text(\"Edit profile\")",
+          "status": "observed",
+          "panels": [
+            "#radix-_R_mav5ubsriv5udb_"
+          ],
+          "focusRestoredAfterEscape": true,
+          "closedAfterEscape": true,
+          "note": "Only trigger activation, optional item hover, and Escape; no option/action/form was submitted."
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "trigger": "button[aria-haspopup=\"dialog\"]:has-text(\"Edit profile\")",
+          "status": "observed",
+          "panels": [
+            "#radix-_R_mav5ubsriv5udb_"
+          ],
+          "focusRestoredAfterEscape": true,
+          "closedAfterEscape": true,
+          "note": "Only trigger activation, optional item hover, and Escape; no option/action/form was submitted."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "wai-select-centered",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
+      "finalUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
+      "capturedAt": "2026-10-15T02:22:40.772Z",
+      "captureVersion": 4,
+      "evidenceSha256": "6cc3f17bff6e16cc1aadd61ea07567ca524a510c3ad370c74d84925d36afedfe",
+      "interactions": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "trigger": "#combo1",
+          "status": "observed",
+          "panels": [
+            "#listbox1"
+          ],
+          "focusRestoredAfterEscape": true,
+          "closedAfterEscape": true,
+          "note": "Only trigger activation, optional item hover, and Escape; no option/action/form was submitted."
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "trigger": "#combo1",
+          "status": "observed",
+          "panels": [
+            "#listbox1"
+          ],
+          "focusRestoredAfterEscape": true,
+          "closedAfterEscape": true,
+          "note": "Only trigger activation, optional item hover, and Escape; no option/action/form was submitted."
+        }
+      ],
+      "notes": [
+        "Triggers were centered for inspection; edge collision behavior was not verified."
+      ]
+    }
+  ],
+  "firstWaiAttempt": {
+    "result": "failed",
+    "reason": "Associated listbox began below the viewport at y=1000.1875 in a 1000px viewport",
+    "correction": "Centered the identified trigger once; default inspector now discloses that edge collisions remain untested"
+  },
+  "syntheticFixture": {
+    "scope": "Local test fixture; not a public brand or production component library",
+    "cssChecks": 10,
+    "browserVerified": true,
+    "fourFilesVerified": true,
+    "crcVerified": true,
+    "zipSha256": "9b986a1cda059766a5c2779e1aa71b272f52c9be96e9b7ae170a097848ac502a",
+    "fileHashes": {
+      "design.md": "bfed83b159bc39276c45d4e662890eb1b140d77cb2b466e08ee9caf9604f2615",
+      "token.json": "4f14a2f409a15052e14b1806821ffde59b9cc31ec5ce49e5593fd1c498abc5b3",
+      "variables.css": "03107e8a1752ce3d4b1f09bb4fbd1e57ec89060367152f06df20fef188f8fb23",
+      "theme.css": "7dec394c6f2c57a9cde1e887b548254550f79899e4e77b3132aa971ebcca34dc"
+    }
+  },
+  "limits": [
+    "Native picker pixels not claimed as DOM styles",
+    "No full screen-reader, Tab-cycle, cross-browser, long-list or edge-collision certification",
+    "Historical v2.1 packages were audited but not rewritten or relabeled as full widget kits"
+  ]
+}

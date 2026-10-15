@@ -99,3 +99,5 @@ Important parser/export behavior:
 - Responsive pixel sizes from computed styles are a snapshot. Preserve a captured `clamp()` expression from CSS when its association is clear; document the viewport samples in prose. Do not turn arbitrary measured bounding boxes into global scale tokens.
 - Tailwind v4 font-size companions use `--text-<role>--line-height` and `--text-<role>--letter-spacing`; the adapter supplies these in addition to upstream variables.
 - JSON deliberately follows upstream's hybrid shape: CSS-token-keyed color/spacing/radius/shadow groups with `$value`/`$type`, typography arrays, layout and metadata. It is not a strict DTCG interchange document.
+
+For frontend-reference packages, also follow [controls.md](controls.md): retain component prose and the coverage ledger in Components. The additive `token.json.$extensions["website-design-package"]` contains parsed components and coverage from the same Markdown. The upstream core token groups remain unchanged.

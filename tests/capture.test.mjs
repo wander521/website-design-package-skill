@@ -16,7 +16,7 @@ test('capture preserves heading/technical roles under crowded navigation, reads 
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'capture-skill-test-'));
  try{
   await capture(`http://127.0.0.1:${site.address().port}/`,dir,process.env.DESIGN_TEST_PLAYWRIGHT);
-  const e=JSON.parse(fs.readFileSync(path.join(dir,'evidence.json'),'utf8'));assert.equal(e.captureVersion,3);
+  const e=JSON.parse(fs.readFileSync(path.join(dir,'evidence.json'),'utf8'));assert.equal(e.captureVersion,4);
   for(const sample of e.samples){
    assert.ok(sample.elements.some(el=>el.tag==='h1'));
    assert.ok(sample.elements.some(el=>el.group==='technical-text'&&el.tag==='code'));

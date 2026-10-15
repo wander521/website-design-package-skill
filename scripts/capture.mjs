@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {captureDom,readCssom,parseCssText} from './capture-dom.mjs';
 
-export const properties=['color','background-color','background-image','font-family','font-size','font-weight','line-height','letter-spacing','font-feature-settings','font-variation-settings','mix-blend-mode','background-clip','-webkit-text-fill-color','filter','text-transform','text-decoration-line','opacity','padding-top','padding-right','padding-bottom','padding-left','margin-top','margin-right','margin-bottom','margin-left','gap','row-gap','column-gap','border-radius','border-top-color','border-top-width','border-top-style','box-shadow','max-width','width','height','min-height','display','position','grid-template-columns','outline','outline-color','outline-width','outline-style','outline-offset','transition-duration','transition-timing-function','animation-name','animation-duration','animation-timing-function','cursor','transform'];
+export const properties=['color','background-color','background-image','font-family','font-size','font-weight','line-height','letter-spacing','font-feature-settings','font-variation-settings','mix-blend-mode','background-clip','-webkit-text-fill-color','filter','text-transform','text-decoration-line','opacity','padding-top','padding-right','padding-bottom','padding-left','margin-top','margin-right','margin-bottom','margin-left','gap','row-gap','column-gap','border-radius','border-top-color','border-top-width','border-top-style','box-shadow','max-width','width','height','min-height','display','position','grid-template-columns','outline','outline-color','outline-width','outline-style','outline-offset','transition-duration','transition-timing-function','animation-name','animation-duration','animation-timing-function','cursor','transform','z-index','overflow-x','overflow-y','max-height','min-width','backdrop-filter','appearance','accent-color','caret-color','resize','scrollbar-color','border-bottom-color','border-bottom-width','border-bottom-style','fill','stroke','stroke-width'];
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 export async function stableEvaluate(page,fn,arg,notes=[]){
   try{return await page.evaluate(fn,arg);}
@@ -113,13 +113,13 @@ export async function captureSite(launchBrowser,url,out,modulePath,colorScheme='
     if(samples.some(s=>Object.values(s.coverage).some(g=>g.truncated)||s.scrollCoverage.capped))notes.push('Some sampling groups or scroll coverage reached their stated limits; coverage is partial.');
     if(samples.some(s=>s.opaqueConsentHosts?.length))notes.push('Potential fixed consent hosts have no readable internal DOM; inspect screenshots. Host presence alone does not prove a visible overlay, and internal styles were not captured.');
     if(samples.some(s=>s.overlays.length))notes.push('A visible consent/modal overlay was recorded; no consent action was clicked. State sampling uses hover, keyboard focus and Escape cleanup.');
-    const evidence={schemaVersion:1,captureVersion:3,requestedUrl:url,finalUrl:page.url(),capturedAt:new Date().toISOString(),colorScheme,status:lastStatus??response.status(),source,samples,states,notes};
+    const evidence={schemaVersion:1,captureVersion:4,requestedUrl:url,finalUrl:page.url(),capturedAt:new Date().toISOString(),colorScheme,status:lastStatus??response.status(),source,samples,states,notes};
     await fs.writeFile(path.join(out,'evidence.json'),JSON.stringify(evidence,null,2));await fs.writeFile(path.join(out,'page.html'),await page.content());
-    return{evidence:path.join(out,'evidence.json'),captureVersion:3,finalUrl:evidence.finalUrl,states:states.filter(x=>x.hover).length,externalCss:externalResults.filter(x=>x.status==='read').length};
+    return{evidence:path.join(out,'evidence.json'),captureVersion:4,finalUrl:evidence.finalUrl,states:states.filter(x=>x.hover).length,externalCss:externalResults.filter(x=>x.status==='read').length};
   }catch(error){
     // Failed/partial captures cannot masquerade as compilable evidence.
     await fs.mkdir(out,{recursive:true});
-    const failure={schemaVersion:1,captureVersion:3,complete:false,requestedUrl:url,finalUrl:page?.url(),status:lastStatus,capturedAt:new Date().toISOString(),error:error.message.split('\n')[0],samples,states,notes};
+    const failure={schemaVersion:1,captureVersion:4,complete:false,requestedUrl:url,finalUrl:page?.url(),status:lastStatus,capturedAt:new Date().toISOString(),error:error.message.split('\n')[0],samples,states,notes};
     await fs.writeFile(path.join(out,'failure.json'),JSON.stringify(failure,null,2));
     if(page)await fs.writeFile(path.join(out,'partial-page.html'),await page.content().catch(()=>''));
     throw error;

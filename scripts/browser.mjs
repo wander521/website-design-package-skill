@@ -1,3 +1,4 @@
+import {inspectControls} from './inspect-controls.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createRequire} from 'node:module';
@@ -59,8 +60,10 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href) {
   const schemeIndex=args.indexOf('--color-scheme');const scheme=schemeIndex>=0?args.splice(schemeIndex,2)[1]:'light';
   if(!['light','dark'].includes(scheme))throw new Error('color-scheme must be light or dark');
   try {
-    if(command==='capture'&&args.length===2)console.log(JSON.stringify(await capture(args[0],path.resolve(args[1]),modulePath,scheme)));
+    const triggerIndex=args.indexOf('--trigger');const trigger=triggerIndex>=0?args.splice(triggerIndex,2)[1]:undefined;
+    if(command==='inspect'&&args.length===2)console.log(JSON.stringify(await inspectControls(launchBrowser,args[0],path.resolve(args[1]),modulePath,trigger,scheme)));
+    else if(command==='capture'&&args.length===2)console.log(JSON.stringify(await capture(args[0],path.resolve(args[1]),modulePath,scheme)));
     else if(command==='verify'&&args.length===1)console.log(JSON.stringify(await checkCss(path.resolve(args[0]),modulePath)));
-    else throw new Error('Usage: node browser.mjs capture URL OUT | verify OUT [--playwright MODULE_DIRECTORY]');
+    else throw new Error('Usage: node browser.mjs capture URL OUT | inspect URL OUT --trigger SELECTOR | verify OUT [--playwright MODULE_DIRECTORY]');
   } catch(e){console.error(e.message);process.exitCode=1;}
 }

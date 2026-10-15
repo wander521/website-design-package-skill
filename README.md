@@ -6,7 +6,7 @@
 用 $website-design-package 提取 https://目标网站
 ```
 
-基于 [RICOUI DESIGN](https://github.com/ricocc/ricoui-design-md) 的 Markdown 解析与导出流程，当前版本 **2.1.0**。
+基于 [RICOUI DESIGN](https://github.com/ricocc/ricoui-design-md) 的 Markdown 解析与导出流程，当前版本 **2.2.0**。
 
 ## 输出
 
@@ -74,6 +74,25 @@ npx playwright install chromium
 
 编译器会拦截缺少证据、非法/重复 token、孤立表格行、循环/未解析引用和部分跨属性误用。来源记录、字体清单与截图用于进一步判断语义：**CSS 有效并不等于设计角色准确**。
 
+## 控件覆盖与新前端实现
+
+v2.2 增加 **19 类控件**的清单、状态和来源范围检查：弹窗、下拉、输入框、复选/单选/开关、按钮、日期时间、颜色、文件、滑块、Tabs、折叠、Tooltip、反馈/错误、进度、表格、分页和导航。
+
+每份用于前端参考的新包必须在 Components 中写明控件覆盖与 `Frontend Implementation` 约定：原站观测、原生边界、未观测、受阻、或基于原语派生。不能为了补齐规范伪造原站组件。弹窗/下拉需检查展开状态，其他控件需说明已覆盖与未覆盖的状态。
+
+组件说明与覆盖清单现在同时保留在 `design.md` 和 `token.json.$extensions['website-design-package']`。**CSS 文件仍只是 token，不会自动实现组件**。新前端需使用现有可访问组件基础并应用主题；业务弹窗不能悄悄改用 `alert/confirm/prompt`，只给 select 加 `appearance:none` 也不等于展开项已统一样式。可完整样式化的 HTML `<dialog>`、原生表单语义和系统文件窗口/手机键盘应正确区分。
+
+先确认可逆且不提交数据的精确触发器，再定向采样：
+
+```sh
+node scripts/browser.mjs inspect https://目标网站 output/site/popup \
+  --trigger '#已核对的触发器'
+```
+
+该命令在桌面/手机采集关闭、打开、菜单项悬停与 Escape 后的状态，并记录关闭/焦点恢复结果。它不选择选项或提交表单，不自动遍历点击页面按钮；原生 select/datalist 只记录边界。模糊控件、完整键盘行为与视口边缘仍需浏览器补验。
+
+详细规则见 [控件提取与实现约定](references/controls.md)，本次审计与真实示例验证见 [v2.2 控件报告](docs/controls-v2.2.md)。历史 23 份 v2.1 包没有被偷偷修改或重新标为完整组件库。
+
 ## 手动执行脚本
 
 以下命令从仓库根目录运行：
@@ -108,8 +127,8 @@ node scripts/build.mjs pack output/site/files output/site/design-package.zip
 
 ```sh
 npm run test:unit     # 27 项编译、证据、引用、导出和打包测试
-npm run test:browser  # 8 项真实浏览器与本地采集测试
-npm test             # 全部 35 项测试
+npm run test:browser  # 16 项浏览器、采集与控件交付测试
+npm test             # 全部 43 项测试
 ```
 
 已有运行时也可通过 `DESIGN_TEST_PLAYWRIGHT=<node_modules目录>` 指定测试依赖。测试使用临时目录和本地 HTTP 页面，不依赖实时品牌网站。
