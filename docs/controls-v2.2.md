@@ -36,7 +36,7 @@
 
 ## 验证
 
-- **43项回归测试通过**，包含19类别、隐藏/打开面板、真正的HTML dialog backdrop、checked/mixed、invalid/readonly/disabled、表格/进度、原生select/datalist、深色偏好、动态popup关联、JSON组件保留及拒绝提交/JS alert。
+- **44项回归测试通过**，包含19类别、隐藏/打开面板、真正的HTML dialog backdrop、checked/mixed、invalid/readonly/disabled、表格/进度、原生select/datalist、深色偏好、动态popup关联、JSON组件保留及拒绝提交/JS alert。
 - 本地隔离fixture的Dialog和Dropdown在两种视口均打开后由Escape关闭、焦点恢复；原生select不假装取得OS弹层样式。
 - 四文件样例经真实浏览器 **10项CSS检查**，标准ZIP四文件集合、CRC和SHA-256核验通过；覆盖/组件/实现约定类遗漏告警为空。示例是测试fixture，不是生产组件库或任何品牌的设计。
 - [Radix公开Dialog示例](https://www.radix-ui.com/primitives/docs/components/dialog)在桌面与手机均采到实际portal弹窗，Escape关闭及焦点恢复通过；没有点击Save changes或提交表单。

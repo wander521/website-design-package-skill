@@ -7,7 +7,8 @@
 - 新增精确触发器 `inspect`，采集桌面/手机展开状态、遮罩/选项样式、Escape关闭及焦点恢复；拒绝提交型按钮和浏览器JS弹框。
 - Markdown组件说明及覆盖清单通过JSON命名空间扩展保留；CSS仍为变量，明确不冒充组件实现。
 - 新增控件覆盖/关闭状态遗漏提示和下游统一主题约定；区分可样式化HTML dialog与浏览器JS弹框、原生select/datalist与自定义面板、系统文件窗口等边界。
-- 43项回归测试通过；公开Radix dialog与WAI select示例、19类本地fixture和四文件ZIP验证见[v2.2报告](docs/controls-v2.2.md)。
+- 校验器认可控件的 accent/caret/underline 颜色来源，避免将实际表单颜色误判成无关属性。
+- 44项回归测试通过；公开Radix dialog与WAI select示例、19类本地fixture和四文件ZIP验证见[v2.2报告](docs/controls-v2.2.md)。
 
 ## 2.1.0 — 2026-10-14
 

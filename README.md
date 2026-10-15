@@ -126,9 +126,9 @@ node scripts/build.mjs pack output/site/files output/site/design-package.zip
 ## 测试与实测
 
 ```sh
-npm run test:unit     # 27 项编译、证据、引用、导出和打包测试
+npm run test:unit     # 28 项编译、证据、引用、导出和打包测试
 npm run test:browser  # 16 项浏览器、采集与控件交付测试
-npm test             # 全部 43 项测试
+npm test             # 全部 44 项测试
 ```
 
 已有运行时也可通过 `DESIGN_TEST_PLAYWRIGHT=<node_modules目录>` 指定测试依赖。测试使用临时目录和本地 HTTP 页面，不依赖实时品牌网站。

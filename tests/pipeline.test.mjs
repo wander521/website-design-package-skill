@@ -165,3 +165,11 @@ test('all-empty viewport evidence cannot compile; partial empty viewports remain
  const empty=structuredClone(evidence);empty.samples[0].elements=[];assert.throws(()=>compile(draft,empty),/No observed elements/);
  const partial=structuredClone(evidence);partial.samples.push({viewport:{width:390,height:844},elements:[]});assert.ok(compile(draft,partial).report.quality.warnings.some(w=>w.code==='missing-core-capture'));
 });
+
+test('authored accent and caret colors are valid color origins for form controls',()=>{
+ for(const property of ['accent-color','caret-color','text-decoration-color']){
+  const e=structuredClone(evidence);e.samples[0].elements[0].styles[property]='rgb(2, 17, 101)';
+  const result=compile(draft.replace('rgb(20, 30, 40)','rgb(2, 17, 101)'),e);
+  assert.ok(result.report.cssChecks.find(c=>c.value==='rgb(2, 17, 101)').evidenceSources.some(s=>s.property===property));
+ }
+});

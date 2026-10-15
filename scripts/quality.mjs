@@ -16,7 +16,7 @@ export function evidenceIndex(evidence){
 export function propertyMatches(expected,actual){
   if(!actual)return false;
   if(actual===expected)return true;
-  const group={color:/^(color|background-color|border(?:-(?:top|right|bottom|left))?-color|outline-color|fill|stroke)$/,padding:/^(padding(?:-.+)?|margin(?:-.+)?|gap|row-gap|column-gap)$/,gap:/^(gap|row-gap|column-gap)$/, 'row-gap':/^(gap|row-gap)$/};
+  const group={color:/^(color|background-color|border(?:-(?:top|right|bottom|left))?-color|outline-color|accent-color|caret-color|text-decoration-color|fill|stroke)$/,padding:/^(padding(?:-.+)?|margin(?:-.+)?|gap|row-gap|column-gap)$/,gap:/^(gap|row-gap|column-gap)$/, 'row-gap':/^(gap|row-gap)$/};
   return Boolean(group[expected]?.test(actual));
 }
 export function fontInventory(evidence){
