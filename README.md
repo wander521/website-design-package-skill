@@ -1,12 +1,12 @@
 # Website Design Package Skill
 
-把一个网页网址交给 Codex，提取有证据支持的设计系统，生成经过校验的四文件 ZIP。
+把一个网页网址交给 Codex，提取有证据支持的设计系统，生成经过校验的四文件 ZIP；也可以检查生成的前端是否符合 design.md。
 
 ```text
 用 $website-design-package 提取 https://目标网站
 ```
 
-基于 [RICOUI DESIGN](https://github.com/ricocc/ricoui-design-md) 的 Markdown 解析与导出流程，当前版本 **2.2.0**。
+基于 [RICOUI DESIGN](https://github.com/ricocc/ricoui-design-md) 的 Markdown 解析与导出流程，当前版本 **2.3.0**。
 
 ## 输出
 
@@ -74,6 +74,34 @@ npx playwright install chromium
 
 编译器会拦截缺少证据、非法/重复 token、孤立表格行、循环/未解析引用和部分跨属性误用。来源记录、字体清单与截图用于进一步判断语义：**CSS 有效并不等于设计角色准确**。
 
+## 前端还原度验收（v2.3）
+
+直接使用同一个 skill，提供 **design.md / 设计包 + 已生成前端的运行地址**：
+
+```text
+用 $website-design-package 检查这个前端 http://localhost:3000 是否符合 ./design.md。
+重点检查桌面、手机、弹窗、下拉和其他控件，给出偏差和修正建议。
+```
+
+```text
+用 $website-design-package 验收前端 http://localhost:3000 对原站 https://参考网站 的还原度。
+设计规范是 ./design.md，请对照同尺寸、同主题的截图和控件展开状态。
+```
+
+**新页面的设计一致性**与**原页面复刻**分别检查。仅有 design.md 时能验收其中定义的规范；要判断原页面的构图、图片、换行和布局还原，还需要原站或对应截图。
+
+Codex 阅读规范并检查目标页面后，会建立“元素—属性—视口—状态”的映射，运行测量并复核截图。它检查实际绘制样式与实际使用的字体，不会因为导入了正确变量就判定通过。弹窗和下拉需同时检查触发器与展开层；其余控件按 19 类清单记录状态与原生边界。
+
+输出独立的 `audit.md` 审阅结论、`fidelity.json` / `fidelity.md` 原始测量及桌面/手机截图，不改变原来的四文件 ZIP。报告区分符合、偏差、受阻/未检查和参考未定义；列出预期值、实际值、位置、状态、影响与修正建议。**不把几个 CSS 检查换算成“整体还原度 95%”**。
+
+测量脚本也可以单独运行；映射方案由 Codex 根据当前文档与页面生成，脚本不替代视觉判断：
+
+```sh
+node scripts/fidelity.mjs ./design.md http://localhost:3000 ./plan.json ./output/fidelity
+```
+
+输出目录必须为空。0 表示映射项通过但仍需视觉复核，2 表示存在偏差，3 表示检查不完整，1 表示输入或运行失败。依赖选择仍支持 `--playwright`。相对单位、上下文颜色及复杂图像等保留浏览器复核范围，不伪造期望值。详细输入、映射示例与验收流程见 [还原度验收规则](references/fidelity.md)，验证记录见 [v2.3 验证报告](docs/fidelity-v2.3.md)。
+
 ## 控件覆盖与新前端实现
 
 v2.2 增加 **19 类控件**的清单、状态和来源范围检查：弹窗、下拉、输入框、复选/单选/开关、按钮、日期时间、颜色、文件、滑块、Tabs、折叠、Tooltip、反馈/错误、进度、表格、分页和导航。
@@ -127,8 +155,8 @@ node scripts/build.mjs pack output/site/files output/site/design-package.zip
 
 ```sh
 npm run test:unit     # 28 项编译、证据、引用、导出和打包测试
-npm run test:browser  # 16 项浏览器、采集与控件交付测试
-npm test             # 全部 44 项测试
+npm run test:browser  # 23 项浏览器、采集、控件与还原度测试
+npm test             # 全部 51 项测试
 ```
 
 已有运行时也可通过 `DESIGN_TEST_PLAYWRIGHT=<node_modules目录>` 指定测试依赖。测试使用临时目录和本地 HTTP 页面，不依赖实时品牌网站。

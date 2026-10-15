@@ -1,0 +1,91 @@
+{
+  "version": "2.3.0",
+  "date": "2026-10-15",
+  "fixture": "Synthetic frontend using the v2.2 four-file design package; not an additional public-brand benchmark",
+  "sourceSha256": "bfed83b159bc39276c45d4e662890eb1b140d77cb2b466e08ee9caf9604f2615",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "states": [
+    "default",
+    "dialog-open",
+    "dropdown-open",
+    "keyboard-focus"
+  ],
+  "scenarios": [
+    {
+      "name": "matching",
+      "pass": 24,
+      "fail": 0,
+      "blocked": 0,
+      "planned": 24,
+      "measured": 24,
+      "captureFailures": 0,
+      "uncoveredCategories": [
+        "spacing",
+        "layout",
+        "imagery"
+      ],
+      "untestedViewports": [],
+      "status": "checks-pass-review-required"
+    },
+    {
+      "name": "drift",
+      "pass": 14,
+      "fail": 10,
+      "blocked": 0,
+      "planned": 24,
+      "measured": 24,
+      "captureFailures": 0,
+      "uncoveredCategories": [
+        "spacing",
+        "layout",
+        "imagery"
+      ],
+      "untestedViewports": [],
+      "status": "drift-detected"
+    },
+    {
+      "name": "native",
+      "pass": 0,
+      "fail": 2,
+      "blocked": 0,
+      "planned": 2,
+      "measured": 2,
+      "captureFailures": 2,
+      "uncoveredCategories": [
+        "palette",
+        "typography",
+        "spacing",
+        "shape",
+        "layout",
+        "imagery"
+      ],
+      "untestedViewports": [],
+      "status": "drift-detected"
+    }
+  ],
+  "visualReview": {
+    "inspected": [
+      "desktop/mobile defaults",
+      "dialog viewport screenshot",
+      "desktop/mobile dropdown panels",
+      "deliberate desktop/mobile typography drift"
+    ],
+    "uncovered": [
+      "spacing rules",
+      "layout rules",
+      "imagery",
+      "complete behavior of all 19 control families",
+      "cross-browser/native picker rendering"
+    ],
+    "conclusion": "Mapped baseline constraints pass; deliberate drift and browser JS dialogs are detected. No overall fidelity percentage."
+  }
+}

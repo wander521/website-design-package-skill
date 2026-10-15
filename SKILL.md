@@ -1,13 +1,15 @@
 ---
 name: website-design-package
-description: Extract a website's observed design system from a URL and deliver a validated ZIP containing design.md, token.json, variables.css, and theme.css. Use for website style references, design-token extraction, or RICOUI-compatible design packages; not for redesigning a website.
+description: Extract a website's observed design system into a validated four-file design ZIP, or audit a generated frontend against design.md and reference screenshots. Use for website design-token extraction, RICOUI-compatible design packages, frontend fidelity checks and design drift reports.
 metadata:
-  version: "2.2.0"
+  version: "2.3.0"
 ---
 
 # Website Design Package
 
 Turn a supplied HTTP(S) URL into an evidence-backed design reference and a ZIP with exactly `design.md`, `token.json`, `variables.css`, and `theme.css`. The Markdown is the single source; generate the other files with the bundled RICOUI parser/exporter, never by writing them independently.
+
+For **frontend fidelity / restoration acceptance**, read [references/fidelity.md](references/fidelity.md) and use its audit mode instead of extracting another package. Input is the design document/package plus the implemented frontend URL; page reconstruction also needs the original page/screenshots. Deliver a reviewed discrepancy/coverage report and evidence. The helper's CSS checks alone cannot certify whole-page visual fidelity. Audit does not authorize redesign or edits to the target frontend.
 
 Resolve `<skill>` to this folder and select an available Node.js 22+ executable. Helpers are self-contained except browser capture/verification, which needs Playwright and Chromium or installed Chrome. Use the desktop workspace-dependency tool to locate an existing runtime when available. `--playwright <node_modules-directory>` selects that runtime's Playwright. Do not assume a particular user's absolute paths. If dependencies are unavailable, use the browser-tool fallback in [references/browser-evidence.md](references/browser-evidence.md).
 
